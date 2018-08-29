@@ -1,8 +1,11 @@
 import React from 'react';
 import {
     View,
-    Picker
+    Picker,
+    StyleSheet
 } from 'react-native';
+import GlobalStyles from '../Styles';
+import { BACKGROUND1 } from '../Constants';
 
 const industries = ['Commercial Law', 'IP Law', 'Criminal Law'];
 
@@ -15,6 +18,8 @@ class IndustrySelect extends React.Component {
         return (
             <View style={{flex: 1, maxHeight: 50, borderColor: 'black', borderWidth: 1}}>
                 <Picker
+                    style={styles.text}
+                    backgroundColor={BACKGROUND1}
                     selectedValue={selectedValue || 'default'}
                     onValueChange={onSelect}
                 >
@@ -27,5 +32,9 @@ class IndustrySelect extends React.Component {
 }
 
 const defaultItem = <Picker.Item style={{fontColor: 'grey'}} key='default' label='Select an Industry' value='default'/>;
+
+const styles = StyleSheet.create(Object.assign(GlobalStyles, {
+
+}));
 
 export default IndustrySelect;

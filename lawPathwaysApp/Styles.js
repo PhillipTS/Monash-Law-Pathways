@@ -1,14 +1,25 @@
+import {
+    PRIMARY,
+    SECONDARY,
+    TETIARY,
+    BACKGROUND1,
+    BACKGROUND2
+} from './Constants';
+
 export default {
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: BACKGROUND2,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20
     },
     title: {
         flex: 1,
-        fontSize: 23,
-        flexWrap: 'nowrap'
+        flexWrap: 'nowrap',
+        margin: 10
+    },
+    text: {
+        color: PRIMARY
     }
 }

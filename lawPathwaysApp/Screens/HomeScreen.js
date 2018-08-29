@@ -2,15 +2,24 @@ import React from 'react';
 import {
     View,
     Text,
+    StatusBar,
     StyleSheet
 } from 'react-native';
-import { SearchBar } from 'react-native-elements';
+import {
+    Text as Title
+} from 'react-native-elements';
 import GlobalStyles from '../Styles';
+import {
+    APP_NAME,
+    BACKGROUND1
+} from '../Constants';
+import NavBar from '../Components/NavBar';
+import OpportunitySearch from '../Components/OpportunitySearch';
 import IndustrySelect from '../Components/IndustrySelect';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
-        title: 'Law Pathways'
+        headerTitle: <NavBar/>
     };
 
     render() {
@@ -18,15 +27,17 @@ class HomeScreen extends React.Component {
 
         return (
             <View style={styles.container}>
+                <StatusBar
+                    backgroundColor="blue"
+                    barStyle="light-content"
+                />
                 <View style={{flex: 1}}>
-                    <Text style={styles.title} >Welcome to Monash Law Pathways</Text>
+                    <Title style={[styles.title, styles.text]} h4>Welcome to {APP_NAME}</Title>
                     <View style={styles.searchAndSelect}>
-                        <SearchBar
-                            style={{flex: 3}}
-                            lightTheme
-                            placeholder='Search'
-                        />
-                        <Text style={{flex: 1, textAlignVertical: 'center', textAlign: 'center'}}>OR</Text>
+                        <View style={{flex: 3}}>
+                            <OpportunitySearch placeholder='Search Opportunities'/>
+                        </View>
+                        <Text style={[{flex: 1, textAlignVertical: 'center', textAlign: 'center'}, styles.text]}>OR</Text>
                         <View style={{flex: 3}}>
                             <IndustrySelect
                                 onSelect={(value)=> navigate('List', {headerType: 'select', headerValue: value, dataType: 'opportunities'})}
@@ -37,7 +48,7 @@ class HomeScreen extends React.Component {
                 </View>
                 {// TODO: Calendar Component
                 }
-                <View style={{flex: 1}}><Text style={{flex: 1, textAlignVertical: 'center', textAlign: 'center'}}>CALENDAR</Text></View>
+                <View style={{flex: 1}}><Text style={[{flex: 1, textAlignVertical: 'center', textAlign: 'center'}, styles.text]}>CALENDAR</Text></View>
             </View>
         )
     }
@@ -49,7 +60,8 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
         justifyContent: 'center',
         padding: 20,
         borderColor: 'black',
-        borderWidth: 2
+        borderWidth: 2,
+        backgroundColor: BACKGROUND1
     }
   }));
 
