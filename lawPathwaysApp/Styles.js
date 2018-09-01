@@ -9,7 +9,7 @@ import {
 export default {
     container: {
         flex: 1,
-        backgroundColor: BACKGROUND2,
+        backgroundColor: BACKGROUND1,
         alignItems: 'center',
         justifyContent: 'center',
         padding: 20
@@ -20,6 +20,6 @@ export default {
         margin: 10
     },
     text: {
-        color: PRIMARY
+        color: 'black'
     }
 }

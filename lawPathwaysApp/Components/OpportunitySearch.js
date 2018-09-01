@@ -7,7 +7,7 @@ import {
 } from 'react-native-elements';
 import GlobalStyles from '../Styles';
 import {
-    TETIARY, SECONDARY
+    BACKGROUND2
 } from '../Constants';
 
 class OpportunitySearch extends React.Component {
@@ -16,8 +16,7 @@ class OpportunitySearch extends React.Component {
 
         return (
             <SearchBar
-                containerStyle={{backgroundColor: TETIARY}}
-                inputStyle={[{backgroundColor: SECONDARY}, styles.text]}
+                inputStyle={[{backgroundColor: BACKGROUND2}, styles.text]}
                 placeholder={placeholder}
             />
         )

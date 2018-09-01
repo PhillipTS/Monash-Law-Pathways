@@ -11,7 +11,8 @@ import {
 import GlobalStyles from '../Styles';
 import {
     APP_NAME,
-    BACKGROUND1
+    BACKGROUND1,
+    PRIMARY
 } from '../Constants';
 import NavBar from '../Components/NavBar';
 import OpportunitySearch from '../Components/OpportunitySearch';
@@ -61,7 +62,7 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
         padding: 20,
         borderColor: 'black',
         borderWidth: 2,
-        backgroundColor: BACKGROUND1
+        backgroundColor: PRIMARY
     }
   }));
 

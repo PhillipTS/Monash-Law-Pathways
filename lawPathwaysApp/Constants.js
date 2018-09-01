@@ -3,15 +3,15 @@
 export const APP_NAME = 'Explore The Law';
 
 // Colours
-export const PRIMARY = '#EFA5A5';       // Pastel Pink
+export const PRIMARY = '#A4C3D6';       // Pastel Blue
 
-export const SECONDARY = '#FFCE8E';     // Peach-Orange
+export const SECONDARY = '#DFEAF3';     // Azureish White
 
-export const TETIARY = '#9FC1DD';       // Pale Cerulean
+export const TETIARY = '#F9DEDE';       // Pale Pink
 
-export const BACKGROUND1 = '#033D5E';   // Dark Imperial Blue
+export const BACKGROUND1 = '#ABD5D0';   // Pastel Blue
 
-export const BACKGROUND2 = '#188E7E';   // Illuminating Emerald
+export const BACKGROUND2 = '#FFE8CB';   // Blanched Almond
 
 
 export default {
