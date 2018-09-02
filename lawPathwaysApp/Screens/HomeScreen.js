@@ -30,10 +30,7 @@ class HomeScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <StatusBar
-                    backgroundColor="blue"
-                    barStyle="light-content"
-                />
+                <StatusBar/>
                 <View style={{flex: 1}}>
                     <Title style={[styles.title, styles.text]} h4>Welcome to {APP_NAME}</Title>
                     <View style={styles.searchAndSelect}>
