@@ -1,78 +1,151 @@
 import React from 'react';
 import {
     View,
+    Text,
+    Image,
     ScrollView,
-    StyleSheet
+    Modal,
+    StyleSheet,
+    Dimensions
 } from 'react-native';
-import {
-    Text as Title
-} from 'react-native-elements';
+import {Text as Title } from 'react-native-elements';
+import Database from '../Database';
 import GlobalStyles from '../Styles';
 import NavBar from '../Components/NavBar';
 import OpportunitySearch from '../Components/OpportunitySearch';
-import IndustrySelect from '../Components/IndustrySelect';
+import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
+import { PRIMARY, BACKGROUND1 } from '../Constants';
 
-const data = [1,2,3,4,5,6].map((value)=>{
-    return {
-        name: 'Company ' + value,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    }
-})
+const getSectors = (industryID) => Database.Sectors.filter(sector => sector.industry === industryID);
 
 class ListScreen extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            popupOpen: false,
+            popupIndex: 0
+        };
+    }
+
     static navigationOptions = {
         headerTitle: <NavBar/>
     };
 
     render() {
         const { getParam, push } = this.props.navigation;
+        const { popupOpen, popupIndex } = this.state;
 
         const headerType = getParam('headerType', 'title');  // Enum: 'title', 'select', 'search'
-        const headerValue = getParam('headerValue', null);
-        const dataType = getParam('dataType', 'opportunities'); // Enum: 'opportunities', 'grad-profiles', 'sectors'
+        const headerValue = getParam('headerValue', {});
+        const headerValues = getParam('headerValues', []);
+        const dataType = getParam('getParam', 'sectors');
+        
+        const data = getSectors(headerValue);
 
         return (
             <View style={styles.container}>
-                <Header type={headerType} value={headerValue} changeScreen={push} />
-                <View style={{flex: 9}}>
-                    <ScrollView style={{borderColor: 'black', borderWidth: 2}}>
-                        {data.map((company) => <DetailCard key={company.name} name={company.name} description={company.description}/>)}
-                    </ScrollView>
+                <Popup
+                    popupOpen={popupOpen}
+                    onRequestClose={() => this.setState({ popupOpen: false })}
+                    data={data[popupIndex]}
+                />
+                <Header
+                    data={headerValues}
+                    type={headerType}
+                    value={headerValue}
+                    values={headerValues}
+                    dataType={dataType}
+                    changeScreen={push} />
+                <View style={{flex: 9, width: '100%', backgroundColor: PRIMARY}}>
+                    {
+                        data.length !== 0 ?
+                        <ScrollView contentContainerStyle={{borderColor: 'black', borderWidth: 2, paddingBottom: 20}}>
+                            {data.map(({ id, name, description }, index) => 
+                                <DetailCard 
+                                    key={id}
+                                    name={name}
+                                    description={description}
+                                    onPress={() => this.setState({ popupOpen: true, popupIndex: index })}
+                                />
+                            )}
+                        </ScrollView>
+                        :
+                        <Title style={{top: 100, textAlign: 'center', textAlignVertical: 'center'}} h4>No Sectors Found</Title>
+                    }
                 </View>
             </View>
         )
     }
 }
 
+const Popup = ({ popupOpen, onRequestClose, data }) => {
+    const { width } = Dimensions.get('window');
+
+    return (
+        <Modal
+            animationType="slide"
+            transparent={false}
+            visible={popupOpen}
+            onRequestClose={onRequestClose}
+        >
+            <View style={{flex: 1}}>
+                <ScrollView stickyHeaderIndices={[1]} contentContainerStyle={{alignItems: 'center'}}>
+                    <Image style={{width: width, height: 1000}} source={data.file}/>
+                </ScrollView>
+                <View style={styles.linksContainer}>
+                    <Text>Test</Text>
+                </View>
+            </View>
+        </Modal>
+    )
+}
+
 const Header = (props) => {
-    const { type, value, changeScreen } = props;
+    const { data, type, value, values, changeScreen, dataType } = props;
+    let headerComponent;
     switch (type) {
         case 'title':
-            return <TitleHeader value={value} />
+            headerComponent = <TitleHeader value={value}/>
+            break;
         case 'select':
-            return <SelectHeader value={value} changeScreen={changeScreen} />
+            headerComponent = <SelectHeader data={data} value={value} values={values} changeScreen={changeScreen} dataType={dataType}/>
+            break;
         case 'search':
-            return <SearchHeader value={value} />
+            headerComponent = <SearchHeader value={value}/>
+            break;
         default:
-            return <View/>
+            headerComponent = <View/>
     }
+
+    return <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: PRIMARY}}>{headerComponent}</View>
 };
 
-const SearchHeader = (props) =>
-    <View style={{flex: 1, width: '80%'}}>
-        <OpportunitySearch placeholder={props.value} />
-    </View>
+const SearchHeader = ({ value }) => <OpportunitySearch placeholder={value} />
 
-const SelectHeader = (props) => 
-    <View style={{flex: 1, width: '80%', margin: 20}}>
-        <IndustrySelect selectedValue={props.value} onSelect={(value) => props.changeScreen('List', {headerType: 'select', headerValue: value, dataType: 'opportunities'})} />
-    </View>
+const SelectHeader = ({ value, values, changeScreen, data, dataType }) => 
+    <Select
+        selectedValue={value}
+        onSelect={(value) => changeScreen('List', {
+            headerType: 'select',
+            headerValue: value,
+            headerValues: values,
+            dataType: dataType
+        })}
+        data={data}
+    />
 
-const TitleHeader = (props) => <Title style={styles.title} h4>{props.value}</Title>
+const TitleHeader = ({ value }) => <Title style={styles.title} h4>{value}</Title>
 
 const styles = StyleSheet.create(Object.assign(GlobalStyles, {
-
+    linksContainer: {
+        flex: 1,
+        backgroundColor: BACKGROUND1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+        height: 50
+    }
 }));
 
 export default ListScreen;

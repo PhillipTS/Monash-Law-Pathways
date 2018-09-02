@@ -16,7 +16,7 @@ import {
 import Database from '../Database';
 import NavBar from '../Components/NavBar';
 import OpportunitySearch from '../Components/OpportunitySearch';
-import IndustrySelect from '../Components/IndustrySelect';
+import Select from '../Components/Select';
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -25,6 +25,8 @@ class HomeScreen extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
+
+        const industriesData = Database.Industries.map(({id, name}) => {return {value: id, label: name}});
 
         return (
             <View style={styles.container}>
@@ -44,8 +46,13 @@ class HomeScreen extends React.Component {
                         </View>
                         <Text style={[{flex: 1, textAlignVertical: 'center', textAlign: 'center'}, styles.text]}>OR</Text>
                         <View style={{flex: 3}}>
-                            <IndustrySelect
-                                onSelect={(value)=> navigate('List', {headerType: 'select', headerValue: value, dataType: 'sectors'})}
+                            <Select
+                                data={industriesData}
+                                onSelect={(industry) => navigate('List', {
+                                    headerType: 'select',
+                                    headerValue: industry,
+                                    headerValues: industriesData
+                                })}
                                 placeholder='Select an Industry'
                             />
                         </View>

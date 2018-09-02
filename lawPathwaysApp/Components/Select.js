@@ -7,13 +7,9 @@ import {
 import GlobalStyles from '../Styles';
 import { BACKGROUND1 } from '../Constants';
 
-const industries = ['Commercial Law', 'IP Law', 'Criminal Law'];
-
-const pickerItems = industries.map((data)=><Picker.Item key={data} label={data} value={data} />)
-
-class IndustrySelect extends React.Component {
+class Select extends React.Component {
     render() {
-        const { placeholder, selectedValue, onSelect } = this.props;
+        const { placeholder, selectedValue, data, onSelect } = this.props;
 
         return (
             <View style={{flex: 1, maxHeight: 50, borderColor: 'black', borderWidth: 1}}>
@@ -28,7 +24,9 @@ class IndustrySelect extends React.Component {
                         <Picker.Item style={{fontColor: 'grey'}} key='default' label={placeholder} value='default'/>
                         : []
                     }
-                    {pickerItems}
+                    {
+                        data.map(({value, label})=><Picker.Item key={value} label={label} value={value} />)
+                    }
                 </Picker>
             </View>
         )
@@ -39,4 +37,4 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
 
 }));
 
-export default IndustrySelect;
+export default Select;
