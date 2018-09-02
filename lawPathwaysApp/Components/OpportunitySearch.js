@@ -1,5 +1,8 @@
 import React from 'react';
 import {
+    TouchableOpacity,
+    View,
+    Text,
     StyleSheet
 } from 'react-native';
 import {
@@ -12,7 +15,7 @@ import {
 
 class OpportunitySearch extends React.Component {
     render() {
-        const { placeholder } = this.props;
+        const { data, onSelect, placeholder } = this.props;
 
         return (
             <SearchBar

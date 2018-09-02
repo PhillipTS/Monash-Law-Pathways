@@ -13,7 +13,7 @@ const pickerItems = industries.map((data)=><Picker.Item key={data} label={data} 
 
 class IndustrySelect extends React.Component {
     render() {
-        const { includeDefault, selectedValue, onSelect } = this.props;
+        const { placeholder, selectedValue, onSelect } = this.props;
 
         return (
             <View style={{flex: 1, maxHeight: 50, borderColor: 'black', borderWidth: 1}}>
@@ -23,15 +23,17 @@ class IndustrySelect extends React.Component {
                     selectedValue={selectedValue || 'default'}
                     onValueChange={onSelect}
                 >
-                    {includeDefault ? defaultItem : []}
+                    {
+                        placeholder ?
+                        <Picker.Item style={{fontColor: 'grey'}} key='default' label={placeholder} value='default'/>
+                        : []
+                    }
                     {pickerItems}
                 </Picker>
             </View>
         )
     }
 }
-
-const defaultItem = <Picker.Item style={{fontColor: 'grey'}} key='default' label='Select an Industry' value='default'/>;
 
 const styles = StyleSheet.create(Object.assign(GlobalStyles, {
 

@@ -30,7 +30,7 @@ class ListScreen extends React.Component {
 
         const headerType = getParam('headerType', 'title');  // Enum: 'title', 'select', 'search'
         const headerValue = getParam('headerValue', null);
-        const dataType = getParam('dataType', 'opportunities'); // Enum: 'opportunities', 'grad-profiles'
+        const dataType = getParam('dataType', 'opportunities'); // Enum: 'opportunities', 'grad-profiles', 'sectors'
 
         return (
             <View style={styles.container}>

@@ -11,9 +11,9 @@ import {
 import GlobalStyles from '../Styles';
 import {
     APP_NAME,
-    BACKGROUND1,
     PRIMARY
 } from '../Constants';
+import Database from '../Database';
 import NavBar from '../Components/NavBar';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import IndustrySelect from '../Components/IndustrySelect';
@@ -36,13 +36,17 @@ class HomeScreen extends React.Component {
                     <Title style={[styles.title, styles.text]} h4>Welcome to {APP_NAME}</Title>
                     <View style={styles.searchAndSelect}>
                         <View style={{flex: 3}}>
-                            <OpportunitySearch placeholder='Search Opportunities'/>
+                            <OpportunitySearch
+                                data={Database.Opportunities.map(opp => opp.name)}
+                                onSelect={(value)=> navigate('List', {headerType: 'search', headerValue: value, dataType: 'opportunities'})}
+                                placeholder='Search Opportunities'
+                            />
                         </View>
                         <Text style={[{flex: 1, textAlignVertical: 'center', textAlign: 'center'}, styles.text]}>OR</Text>
                         <View style={{flex: 3}}>
                             <IndustrySelect
-                                onSelect={(value)=> navigate('List', {headerType: 'select', headerValue: value, dataType: 'opportunities'})}
-                                includeDefault
+                                onSelect={(value)=> navigate('List', {headerType: 'select', headerValue: value, dataType: 'sectors'})}
+                                placeholder='Select an Industry'
                             />
                         </View>
                     </View>
