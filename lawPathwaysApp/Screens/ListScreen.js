@@ -75,6 +75,7 @@ class ListScreen extends React.Component {
                         dataType: dataType,
                     })}
                     data={otherValues}
+                    dropdown
                 />
                 break;
             case 'search':

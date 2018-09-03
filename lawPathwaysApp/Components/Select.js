@@ -9,7 +9,7 @@ import { BACKGROUND1 } from '../Constants';
 
 class Select extends React.Component {
     render() {
-        const { placeholder, selectedValue, data, onSelect } = this.props;
+        const { placeholder, selectedValue, data, onSelect, dropdown } = this.props;
 
         return (
             <View style={{flex: 1, maxHeight: 50, borderColor: 'black', borderWidth: 1}}>
@@ -18,14 +18,15 @@ class Select extends React.Component {
                     backgroundColor={BACKGROUND1}
                     selectedValue={selectedValue || 'default'}
                     onValueChange={onSelect}
+                    mode={dropdown ? 'dropdown' : 'dialog'}
                 >
                     {
                         placeholder ?
-                        <Picker.Item style={{fontColor: 'grey'}} key='default' label={placeholder} value='default'/>
+                        <Picker.Item key='default' label={placeholder} value='default'/>
                         : []
                     }
                     {
-                        data.map(({value, label})=><Picker.Item key={value} label={label} value={value} />)
+                        data.map(({value, label})=><Picker.Item key={value} label={label} value={value}/>)
                     }
                 </Picker>
             </View>

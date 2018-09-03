@@ -1,17 +1,12 @@
 import React from 'react';
 import {
-    TouchableOpacity,
-    View,
-    Text,
     StyleSheet
 } from 'react-native';
 import {
     SearchBar
 } from 'react-native-elements';
 import GlobalStyles from '../Styles';
-import {
-    BACKGROUND2
-} from '../Constants';
+import { BACKGROUND2, PRIMARY, SECONDARY, TETIARY } from '../Constants';
 
 class OpportunitySearch extends React.Component {
     render() {
@@ -19,7 +14,8 @@ class OpportunitySearch extends React.Component {
 
         return (
             <SearchBar
-                inputStyle={[{backgroundColor: BACKGROUND2}, styles.text]}
+                containerStyle={{backgroundColor: BACKGROUND2}}
+                inputStyle={[{backgroundColor: SECONDARY}, styles.text]}
                 placeholder={placeholder}
             />
         )

@@ -5,18 +5,14 @@ import {
     StatusBar,
     StyleSheet
 } from 'react-native';
-import {
-    Text as Title
-} from 'react-native-elements';
+import { Text as Title } from 'react-native-elements';
 import GlobalStyles from '../Styles';
-import {
-    APP_NAME,
-    PRIMARY
-} from '../Constants';
+import { APP_NAME, PRIMARY } from '../Constants';
 import Database from '../Database';
 import NavBar from '../Components/NavBar';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
+import HomeCalendar from '../Components/HomeCalendar'
 
 class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -31,7 +27,7 @@ class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
                 <StatusBar/>
-                <View style={{flex: 1}}>
+                <View style={{flex: 4}}>
                     <Title style={[styles.title, styles.text]} h4>Welcome to {APP_NAME}</Title>
                     <View style={styles.searchAndSelect}>
                         <View style={{flex: 3}}>
@@ -56,9 +52,11 @@ class HomeScreen extends React.Component {
                         </View>
                     </View>
                 </View>
-                {// TODO: Calendar Component
-                }
-                <View style={{flex: 1}}><Text style={[{flex: 1, textAlignVertical: 'center', textAlign: 'center'}, styles.text]}>CALENDAR</Text></View>
+
+                <View style={styles.calendarContainer}>
+                    <HomeCalendar/>
+                </View>
+            
             </View>
         )
     }
@@ -68,10 +66,14 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
     searchAndSelect: {
         flex: 3,
         justifyContent: 'center',
-        padding: 20,
+        padding: 10,
         borderColor: 'black',
         borderWidth: 2,
         backgroundColor: PRIMARY
+    },
+    calendarContainer: {
+        flex: 6,
+        padding: 10
     }
   }));
 

@@ -12,12 +12,12 @@ export default {
         backgroundColor: BACKGROUND1,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20
+        padding: 10
     },
     title: {
         flex: 1,
         flexWrap: 'nowrap',
-        margin: 10,
+        margin: 5,
         textAlign: 'center'
     },
     text: {
