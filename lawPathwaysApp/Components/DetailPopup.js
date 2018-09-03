@@ -10,11 +10,11 @@ import {
     Dimensions
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { BACKGROUND1, PRIMARY, SECONDARY, TETIARY, BACKGROUND2 } from '../Constants';
+import { PRIMARY, BACKGROUND2 } from '../Constants';
 
 class DetailPopup extends React.Component {
     render() {
-        const { popupOpen, onRequestClose, data } = this.props;
+        const { popupOpen, buttonLabel, onRequestClose, onButtonPress, data } = this.props;
         const { width } = Dimensions.get('window');
     
         return (
@@ -28,15 +28,16 @@ class DetailPopup extends React.Component {
                     <ScrollView contentContainerStyle={{alignItems: 'center'}}>
                         <Image style={{width: width, height: 1000}} source={data.file}/>
                     </ScrollView>
-                    <View style={styles.linksContainer}>
-                        <Text style={{flex: 1}}>Test</Text>
-                        <Button
-                            style={{flex: 1}}
-                            title='Grad Profiles'
-                            color={PRIMARY}
-                            onPress={onRequestClose}
-                        />
-                    </View>
+                    { onButtonPress &&
+                        <View style={styles.linksContainer}>
+                            <Button
+                                style={{flex: 1}}
+                                title={buttonLabel}
+                                color={PRIMARY}
+                                onPress={() => {onButtonPress(); onRequestClose();}}
+                            />
+                        </View>
+                    }
                 </View>
             </Modal>
         )

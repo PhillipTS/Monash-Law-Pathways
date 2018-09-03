@@ -1,12 +1,14 @@
 export default {
     GradProfiles: [
         {
+            id: 0,
             name: 'Kate Schmidt',
             description: 'Layer in the family & relationship law group - Landers & Rogers',
             file: require('./images/gradProfiles/Kate-Schmidt-Profile.png'),
             sector: 0
         },
         {
+            id: 1,
             name: 'Shane Khong',
             description: 'Transfer Pricing Consultant',
             file: require('./images/gradProfiles/Shane-Khong-Profile.png'),

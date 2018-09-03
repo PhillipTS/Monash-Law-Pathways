@@ -16,12 +16,14 @@ import { PRIMARY } from '../Constants';
 
 const getData = (dataType, id) => {
     switch(dataType) {
-        case 'sectors':
+        case 'Sectors':
             return getSectors(id);
-        case 'grad-profiles':
+        case 'GradProfiles':
             return getGradProfiles(id);
-        case 'opportunities':
+        case 'Opportunities':
             return getOpportunities(id);
+        default:
+            return [];
     }
 };
 
@@ -48,12 +50,39 @@ class ListScreen extends React.Component {
         const { getParam, push } = this.props.navigation;
         const { popupOpen, popupIndex } = this.state;
 
-        const headerType = getParam('headerType', 'title');  // Enum: 'title', 'select', 'search'
-        const headerValue = getParam('headerValue', {});
-        const headerValues = getParam('headerValues', []);
-        const dataType = getParam('getParam', 'sectors');   // Enum: 'sectors', 'grad-profiles', 'opportunities'
+        const headerType = getParam('headerType', null);  // 'title', 'select', 'search'
+        const titleValue = getParam('titleValue', '')
+        const referingID = getParam('referingID', 0)
+        const otherValues = getParam('otherValues', [])    // [{label, value}]
+
+        const dataType = getParam('dataType', null);   // 'Sectors', 'GradProfiles', 'Oppportunities'
         
-        const data = getData(dataType, headerValue);
+        const data = getData(dataType, referingID);
+
+        let headerComponent;
+        switch (headerType) {
+            case 'title':
+                headerComponent = <Title style={styles.title} h4>{titleValue}</Title>
+                break;
+            case 'select':
+                headerComponent = 
+                <Select
+                    selectedValue={referingID}
+                    onSelect={(value) => push('List', {
+                        headerType: 'select',
+                        referingID: value,
+                        otherValues: otherValues,
+                        dataType: dataType,
+                    })}
+                    data={otherValues}
+                />
+                break;
+            case 'search':
+                headerComponent = <OpportunitySearch placeholder={referingID} />
+                break;
+            default:
+                headerComponent = <View/>
+        }
 
         return (
             <View style={styles.container}>
@@ -61,17 +90,24 @@ class ListScreen extends React.Component {
                     data.length !== 0 &&
                     <DetailPopup
                         popupOpen={popupOpen}
+                        buttonLabel={dataType === 'Sectors' ? 'GradProfiles' : 'Interested'}
                         onRequestClose={() => this.setState({ popupOpen: false })}
+                        onButtonPress={dataType === 'Sectors' ?
+                            () => push('List', {
+                                headerType: 'title',
+                                titleValue: data[popupIndex].name,
+                                referingID: data[popupIndex].id,
+                                otherValues: data.map(({id, name}) => {return {label: name, value: id}}),
+                                dataType: 'GradProfiles'
+                            })
+                            : dataType === 'Opportunities' ? () => console.log('Interested') : null
+                        }
                         data={data[popupIndex]}
                     />
                 }
-                <Header
-                    data={headerValues}
-                    type={headerType}
-                    value={headerValue}
-                    values={headerValues}
-                    dataType={dataType}
-                    changeScreen={push} />
+
+                <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: PRIMARY}}>{headerComponent}</View>
+
                 <View style={{flex: 9, width: '100%', backgroundColor: PRIMARY}}>
                     {
                         data.length !== 0 ?
@@ -86,49 +122,15 @@ class ListScreen extends React.Component {
                             )}
                         </ScrollView>
                         :
-                        <Title style={{top: 100, textAlign: 'center', textAlignVertical: 'center'}} h4>No Sectors Found</Title>
+                        <Title style={{top: 100, textAlign: 'center', textAlignVertical: 'center'}} h4>
+                            No {dataType === 'GradProfiles' ? 'Grad Profiles' : dataType} Found
+                        </Title>
                     }
                 </View>
             </View>
         )
     }
 }
-
-const Header = (props) => {
-    const { data, type, value, values, changeScreen, dataType } = props;
-    let headerComponent;
-    switch (type) {
-        case 'title':
-            headerComponent = <TitleHeader value={value}/>
-            break;
-        case 'select':
-            headerComponent = <SelectHeader data={data} value={value} values={values} changeScreen={changeScreen} dataType={dataType}/>
-            break;
-        case 'search':
-            headerComponent = <SearchHeader value={value}/>
-            break;
-        default:
-            headerComponent = <View/>
-    }
-
-    return <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: PRIMARY}}>{headerComponent}</View>
-};
-
-const SearchHeader = ({ value }) => <OpportunitySearch placeholder={value} />
-
-const SelectHeader = ({ value, values, changeScreen, data, dataType }) => 
-    <Select
-        selectedValue={value}
-        onSelect={(value) => changeScreen('List', {
-            headerType: 'select',
-            headerValue: value,
-            headerValues: values,
-            dataType: dataType
-        })}
-        data={data}
-    />
-
-const TitleHeader = ({ value }) => <Title style={styles.title} h4>{value}</Title>
 
 const styles = StyleSheet.create(Object.assign(GlobalStyles, {
     

@@ -37,7 +37,7 @@ class HomeScreen extends React.Component {
                         <View style={{flex: 3}}>
                             <OpportunitySearch
                                 data={Database.Opportunities.map(opp => opp.name)}
-                                onSelect={(value)=> navigate('List', {headerType: 'search', headerValue: value, dataType: 'opportunities'})}
+                                onSelect={(oppo) => {}}
                                 placeholder='Search Opportunities'
                             />
                         </View>
@@ -45,10 +45,11 @@ class HomeScreen extends React.Component {
                         <View style={{flex: 3}}>
                             <Select
                                 data={industriesData}
-                                onSelect={(industry) => navigate('List', {
+                                onSelect={(industryID) => navigate('List', {
                                     headerType: 'select',
-                                    headerValue: industry,
-                                    headerValues: industriesData
+                                    referingID: industryID,
+                                    otherValues: industriesData,
+                                    dataType: 'Sectors'
                                 })}
                                 placeholder='Select an Industry'
                             />

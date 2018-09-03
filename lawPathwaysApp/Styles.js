@@ -17,7 +17,8 @@ export default {
     title: {
         flex: 1,
         flexWrap: 'nowrap',
-        margin: 10
+        margin: 10,
+        textAlign: 'center'
     },
     text: {
         color: 'black'
