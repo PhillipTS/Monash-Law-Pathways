@@ -14,14 +14,14 @@ import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
 import { PRIMARY } from '../Constants';
 
-const getData = (dataType, id) => {
+const getData = (dataType, value) => {
     switch(dataType) {
         case 'Sectors':
-            return getSectors(id);
+            return getSectors(value);
         case 'GradProfiles':
-            return getGradProfiles(id);
+            return getGradProfiles(value);
         case 'Opportunities':
-            return getOpportunities(id);
+            return getOpportunities(value);
         default:
             return [];
     }
@@ -31,7 +31,7 @@ const getSectors = (industryID) => Database.Sectors.filter(sector => sector.indu
 
 const getGradProfiles = (sectorID) => Database.GradProfiles.filter(profile => profile.sector === sectorID);
 
-const getOpportunities = () => {};
+const getOpportunities = (searchTerm) => Database.Opportunities.filter(({ name, description }) => name.includes(searchTerm) || description.includes(searchTerm));
 
 class ListScreen extends React.Component {
     constructor(props) {
@@ -52,12 +52,12 @@ class ListScreen extends React.Component {
 
         const headerType = getParam('headerType', null);  // 'title', 'select', 'search'
         const titleValue = getParam('titleValue', '')
-        const referingID = getParam('referingID', 0)
+        const referingValue = getParam('referingValue', 0)
         const otherValues = getParam('otherValues', [])    // [{label, value}]
 
         const dataType = getParam('dataType', null);   // 'Sectors', 'GradProfiles', 'Oppportunities'
         
-        const data = getData(dataType, referingID);
+        const data = getData(dataType, referingValue);
 
         let headerComponent;
         switch (headerType) {
@@ -67,10 +67,10 @@ class ListScreen extends React.Component {
             case 'select':
                 headerComponent = 
                 <Select
-                    selectedValue={referingID}
+                    selectedValue={referingValue}
                     onSelect={(value) => push('List', {
                         headerType: 'select',
-                        referingID: value,
+                        referingValue: value,
                         otherValues: otherValues,
                         dataType: dataType,
                     })}
@@ -79,7 +79,15 @@ class ListScreen extends React.Component {
                 />
                 break;
             case 'search':
-                headerComponent = <OpportunitySearch placeholder={referingID} />
+                headerComponent = 
+                    <OpportunitySearch
+                        placeholder={referingValue}
+                        onSelect={(searchTerm) => push('List', {
+                            headerType: 'search',
+                            referingValue: searchTerm,
+                            dataType: 'Opportunities'
+                        })}
+                    />
                 break;
             default:
                 headerComponent = <View/>
@@ -94,13 +102,16 @@ class ListScreen extends React.Component {
                         buttonLabel={dataType === 'Sectors' ? 'GradProfiles' : 'Interested'}
                         onRequestClose={() => this.setState({ popupOpen: false })}
                         onButtonPress={dataType === 'Sectors' ?
-                            () => push('List', {
-                                headerType: 'title',
-                                titleValue: data[popupIndex].name,
-                                referingID: data[popupIndex].id,
-                                otherValues: data.map(({id, name}) => {return {label: name, value: id}}),
-                                dataType: 'GradProfiles'
-                            })
+                            () => {
+                                this.setState({ popupOpen: false });
+                                push('List', {
+                                    headerType: 'title',
+                                    titleValue: data[popupIndex].name,
+                                    referingValue: data[popupIndex].id,
+                                    otherValues: data.map(({id, name}) => {return {label: name, value: id}}),
+                                    dataType: 'GradProfiles'
+                                })
+                            }
                             : dataType === 'Opportunities' ? () => console.log('Interested') : null
                         }
                         data={data[popupIndex]}

@@ -17,6 +17,7 @@ export default {
     ],
     Opportunities: [
         {
+            id: 0,
             name: 'Just Leadership Program',
             description: 'The program affords selected students the opportunity to affiliate with, learn from and listen to high profile speakers who are closely associated with social justice and equity issues in the law. Students get to attend a series of seminars on social justice issues and create a project related to these issues.',
             file: require('./images/opportunities/Just-Leadership-Program.png'),
@@ -39,6 +40,7 @@ export default {
             ]
         },
         {
+            id: 1,
             name: 'Study Abroad Exchange Program',
             description: 'Going on exchange means you can stay enrolled at Monash, receive credit for overseas study towards your Monash degree and continue paying your Monash fees.There are 150 partner universities in more than 30 partner universities across Europe, North America, SouthAmerica, Asia and Africa. You may be eligible for a Monash travel grant.',
             file: require('./images/opportunities/Monash-Abroad-Student-Exchange.png'),
@@ -57,6 +59,7 @@ export default {
             ]
         },
         {
+            id: 2,
             name: 'Access Monash Mentoring Program',
             description: 'Access Monash Mentoring is an exciting opportunity for Monash students who enjoy working with young people and want to make a difference. As a mentor, you will support secondary school students, helping them make informed decisions about their future. Access Monash is a volunteer program, however there is the opportunity to be supported by the Community Leaders Scholarship.',
             file: require('./images/opportunities/Access-Monash-Mentoring-Program.png'),
@@ -79,6 +82,7 @@ export default {
             ]
         },
         {
+            id: 3,
             name: 'Clinical Externships (LAW4803)',
             description: 'A clinical externship will give you the opportunity to engage in placement hosted by, or under the aegis of, an external organisation. Under professional supervision, you will undertake a range of activities involving work for end clients/ beneficiaries of that host organisation.',
             file: require('./images/opportunities/Clinical-Externships.png'),

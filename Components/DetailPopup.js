@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     View,
-    Text,
     Button,
     Image,
     Modal,
@@ -34,7 +33,7 @@ class DetailPopup extends React.Component {
                                 style={{flex: 1}}
                                 title={buttonLabel}
                                 color={PRIMARY}
-                                onPress={() => {onButtonPress(); onRequestClose();}}
+                                onPress={onButtonPress}
                             />
                         </View>
                     }
