@@ -144,8 +144,8 @@ class ListScreen extends React.Component {
     }
 }
 
-const styles = StyleSheet.create(Object.assign(GlobalStyles, {
+const styles = StyleSheet.create({...GlobalStyles,
     
-}));
+});
 
 export default ListScreen;

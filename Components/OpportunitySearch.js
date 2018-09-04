@@ -42,7 +42,7 @@ class OpportunitySearch extends React.Component {
     }
 }
 
-const styles = StyleSheet.create(Object.assign(GlobalStyles, {
+const styles = StyleSheet.create({...GlobalStyles,
     componentContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -64,6 +64,6 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
         flex: 1,
         textAlignVertical: 'center'
     }
-}));
+});
 
 export default OpportunitySearch;

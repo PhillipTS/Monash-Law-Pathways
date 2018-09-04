@@ -65,7 +65,7 @@ class HomeScreen extends React.Component {
     }
 }
 
-const styles = StyleSheet.create(Object.assign(GlobalStyles, {
+const styles = StyleSheet.create({...GlobalStyles,
     searchAndSelect: {
         flex: 3,
         justifyContent: 'center',
@@ -78,6 +78,6 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
         flex: 6,
         padding: 10
     }
-  }));
+  });
 
 export default HomeScreen

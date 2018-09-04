@@ -31,13 +31,13 @@ class DetailCard extends React.Component {
     }
 }
 
-const styles = StyleSheet.create(Object.assign(GlobalStyles, {
+const styles = StyleSheet.create({...GlobalStyles,
     cardContainer: {
         flex: 1,
         flexDirection: 'row',
         height: 100,
         backgroundColor: BACKGROUND1
     }
-  }));
+});
 
 export default DetailCard;

@@ -43,7 +43,7 @@ class DetailPopup extends React.Component {
     }
 }
 
-const styles = StyleSheet.create(Object.assign(GlobalStyles, {
+const styles = StyleSheet.create({...GlobalStyles,
     linksContainer: {
         flex: 1,
         flexDirection: 'row',
@@ -57,6 +57,6 @@ const styles = StyleSheet.create(Object.assign(GlobalStyles, {
         borderColor: 'black',
         borderWidth: 4
     }
-}));
+});
 
 export default DetailPopup;
