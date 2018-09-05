@@ -98,65 +98,46 @@ export default {
             id: 0,
             name: 'Barristers',
             file: require('./images/sectors/Barristers.png'),
-            industry: 0
         },
         {
             id: 1,
             name: 'Top Tier Law Firms',
             file: require('./images/sectors/Top-Tier-Law-Firms.png'),
-            industry: 0
         },
         {
             id: 2,
             name: 'Mid Tier Law Firms',
             file: require('./images/sectors/Mid-Tier-Law-Firms.png'),
-            industry: 0
         },
         {
             id: 3,
             name: 'Boutique Law Firms',
             file: require('./images/sectors/Boutique-Law-Firms.png'),
-            industry: 0
         },
         {
             id: 4,
             name: 'Professional Services',
             file: require('./images/sectors/Professional-Services.png'),
-            industry: 0
         },
         {
             id: 5,
             name: 'Education And Academia',
             file: require('./images/sectors/Education.png'),
-            industry: 0
         },
         {
             id: 6,
             name: 'Community Legal Aid',
             file: require('./images/sectors/Community-Legal-Aid.png'),
-            industry: 0
         },
         {
             id: 7,
             name: 'Government',
             file: require('./images/sectors/Government.png'),
-            industry: 0
         },
         {
             id: 8,
             name: 'The Court System',
             file: require('./images/sectors/Court-System.png'),
-            industry: 0
-        }
-    ],
-    Industries: [
-        {
-            id: 0,
-            name: 'Test Industry'
-        },
-        {
-            id: 1,
-            name: 'Second Test Industry'
         }
     ]
 }
