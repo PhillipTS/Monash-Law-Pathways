@@ -8,7 +8,7 @@ class NavBar extends React.Component {
     render() {
         return (
             <View style={{flex: 1, alignItems: 'center'}}>
-                <Image source={require('../images/logo.png')}/>
+                <Image source={require('../images/banner_blue_background.png')}/>
                 <View/>
             </View>
         )

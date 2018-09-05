@@ -1,15 +1,12 @@
 import React from 'react';
 import {
     View,
-    Text,
-    TouchableOpacity,
+    TextInput,
     StyleSheet
 } from 'react-native';
-import {
-    SearchBar
-} from 'react-native-elements';
 import GlobalStyles from '../Styles';
-import { BACKGROUND2, SECONDARY } from '../Constants';
+import Button from '../Components/Button';
+import { WHITE } from '../Constants';
 
 class OpportunitySearch extends React.Component {
     constructor(props) {
@@ -24,19 +21,15 @@ class OpportunitySearch extends React.Component {
         const { searchTerm } = this.state;
         return (
             <View style={styles.componentContainer}>
-                <SearchBar
-                    style={{flex: 3}}
-                    containerStyle={styles.searchContainer}
-                    inputStyle={[{backgroundColor: SECONDARY}, styles.text]}
+                <TextInput
+                    style={styles.searchContainer}
                     placeholder={placeholder}
                     onChangeText={(searchTerm) => this.setState({ searchTerm })}
                 />
-                <TouchableOpacity
-                    style={styles.buttonContainer}
+                <Button
                     onPress={() => onSelect(searchTerm)}
-                >
-                    <Text style={styles.buttonLabel}>Search</Text>
-                </TouchableOpacity>
+                    label='SEARCH'
+                />
             </View>
         )
     }
@@ -46,23 +39,14 @@ const styles = StyleSheet.create({...GlobalStyles,
     componentContainer: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: BACKGROUND2
-    },
-    searchContainer: {
-        backgroundColor: BACKGROUND2,
-        width: '75%'
-    },
-    buttonContainer: {
-        flex: 1,
-        margin: 5,
-        padding: 5,
         borderColor: 'black',
         borderWidth: 1,
-        backgroundColor: SECONDARY
+        backgroundColor: WHITE
     },
-    buttonLabel: {
-        flex: 1,
-        textAlignVertical: 'center'
+    searchContainer: {
+        flex: 3,
+        marginLeft: 10,
+        textAlign: 'center'
     }
 });
 

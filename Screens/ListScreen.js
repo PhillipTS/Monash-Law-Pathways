@@ -12,7 +12,7 @@ import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
-import { PRIMARY } from '../Constants';
+import { BACKGROUND, WHITE, PRIMARY, SECONDARY_BACKGROUND } from '../Constants';
 
 const getData = (dataType, value) => {
     switch(dataType) {
@@ -99,10 +99,10 @@ class ListScreen extends React.Component {
                     data.length !== 0 &&
                     <DetailPopup
                         popupOpen={popupOpen}
-                        buttonLabel={dataType === 'Sectors' ? 'GradProfiles' : 'Interested'}
+                        buttonLabel={dataType === 'Sectors' ? 'GradProfiles' : dataType === 'GradProfiles' ? 'Opportunities' : 'Interested'}
                         onRequestClose={() => this.setState({ popupOpen: false })}
-                        onButtonPress={dataType === 'Sectors' ?
-                            () => {
+                        onButtonPress={
+                            dataType === 'Sectors' ? () => {
                                 this.setState({ popupOpen: false });
                                 push('List', {
                                     headerType: 'title',
@@ -112,31 +112,40 @@ class ListScreen extends React.Component {
                                     dataType: 'GradProfiles'
                                 })
                             }
-                            : dataType === 'Opportunities' ? () => console.log('Interested') : null
+                            : dataType === 'GradProfiles' ? () => {
+                                    this.setState({ popupOpen: false });
+                                    push('List', {
+                                    headerType: 'search',
+                                    referingValue: '',
+                                    dataType: 'Opportunities'
+                                })
+                            }
+                            : () => console.log('Interested')
                         }
                         data={data[popupIndex]}
                     />
                 }
 
-                <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: PRIMARY}}>{headerComponent}</View>
+                <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: BACKGROUND}}>{headerComponent}</View>
 
-                <View style={{flex: 9, width: '100%', backgroundColor: PRIMARY}}>
+                <View style={{flex: 9, width: '100%', backgroundColor: BACKGROUND}}>
                     {
                         data.length !== 0 ?
-                        <ScrollView contentContainerStyle={{borderColor: 'black', borderWidth: 2, paddingBottom: 20}}>
-                            {data.map(({ id, name, description }, index) => 
+                        <ScrollView contentContainerStyle={{borderColor: 'black', borderWidth: 2, paddingBottom: 20, backgroundColor: WHITE}}>
+                            {data.map((obj, index) => 
                                 <DetailCard 
-                                    key={id}
-                                    name={name}
-                                    description={description}
+                                    key={obj.id}
+                                    data={obj}
                                     onPress={() => this.setState({ popupOpen: true, popupIndex: index })}
                                 />
                             )}
                         </ScrollView>
                         :
-                        <Title style={{top: 100, textAlign: 'center', textAlignVertical: 'center'}} h4>
-                            No {dataType === 'GradProfiles' ? 'Grad Profiles' : dataType} Found
-                        </Title>
+                        <View style={{flex: 1, borderColor: 'black', borderWidth: 2, backgroundColor: SECONDARY_BACKGROUND}}>
+                            <Title style={{top: 100, textAlign: 'center', textAlignVertical: 'center'}} h4>
+                                No {dataType === 'GradProfiles' ? 'Grad Profiles' : dataType} Found
+                            </Title>
+                        </View>
                     }
                 </View>
             </View>

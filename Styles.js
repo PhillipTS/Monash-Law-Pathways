@@ -1,18 +1,27 @@
 import {
-    PRIMARY,
+    BACKGROUND,
     SECONDARY,
-    TETIARY,
-    BACKGROUND1,
-    BACKGROUND2
+    PRIMARY,
+    SECONDARY_BACKGROUND,
+    WHITE
 } from './Constants';
 
 export default {
     container: {
         flex: 1,
-        backgroundColor: BACKGROUND1,
+        backgroundColor: BACKGROUND,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 10
+        padding: 20
+    },
+    innerContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        padding: 10,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: SECONDARY_BACKGROUND,
+        borderRadius: 5
     },
     title: {
         flex: 1,

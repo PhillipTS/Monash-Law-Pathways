@@ -1,36 +1,54 @@
 import React from 'react';
 import {
     View,
-    Text,
     StatusBar,
     StyleSheet
 } from 'react-native';
-import { Text as Title } from 'react-native-elements';
 import GlobalStyles from '../Styles';
-import { APP_NAME, PRIMARY } from '../Constants';
 import Database from '../Database';
-import NavBar from '../Components/NavBar';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
-import HomeCalendar from '../Components/HomeCalendar'
+import HomeCalendar from '../Components/HomeCalendar';
+import DetailPopup from '../Components/DetailPopup';
 
 class HomeScreen extends React.Component {
-    static navigationOptions = {
-        headerTitle: <NavBar/>
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            popupOpen: false,
+            popupIndex: 0
+        };
+    }
 
     render() {
         const { navigate } = this.props.navigation;
-
-        const industriesData = Database.Industries.map(({id, name}) => {return {value: id, label: name}});
+        const { popupOpen, popupIndex } = this.state;
+        const sectorsData = Database.Sectors;
 
         return (
             <View style={styles.container}>
                 <StatusBar/>
-                <View style={{flex: 4}}>
-                    <Title style={[styles.title, styles.text]} h4>Welcome to {APP_NAME}</Title>
-                    <View style={styles.searchAndSelect}>
-                        <View style={{flex: 3}}>
+                <DetailPopup
+                    popupOpen={popupOpen}
+                    buttonLabel='Interested'
+                    onRequestClose={() => this.setState({ popupOpen: false })}
+                    onButtonPress={
+                        () => {
+                            this.setState({ popupOpen: false });
+                            navigate('List', {
+                                headerType: 'title',
+                                titleValue: sectorsData[popupIndex].name,
+                                referingValue: sectorsData[popupIndex].id,
+                                otherValues: sectorsData.map(({id, name}) => {return {label: name, value: id}}),
+                                dataType: 'GradProfiles'
+                            })
+                        }
+                    }
+                    data={sectorsData[popupIndex]}
+                />
+                <View style={{flex: 1}}>
+                    <View style={styles.innerContainer}>
+                        <View style={{flex: 1, marginBottom: 10}}>
                             <OpportunitySearch
                                 onSelect={(searchTerm) => navigate('List', {
                                     headerType: 'search',
@@ -40,24 +58,17 @@ class HomeScreen extends React.Component {
                                 placeholder='Search Opportunities'
                             />
                         </View>
-                        <Text style={[{flex: 1, textAlignVertical: 'center', textAlign: 'center'}, styles.text]}>OR</Text>
-                        <View style={{flex: 3}}>
+                        <View style={{flex: 1, marginTop: 10, marginBottom: 50}}>
                             <Select
-                                data={industriesData}
-                                onSelect={(industryID) => navigate('List', {
-                                    headerType: 'select',
-                                    referingValue: industryID,
-                                    otherValues: industriesData,
-                                    dataType: 'Sectors'
-                                })}
-                                placeholder='Select an Industry'
+                                data={sectorsData.map(({id, name}) => {return {value: id, label: name}})}
+                                onSelect={sectorID => this.setState({ popupIndex: sectorID, popupOpen: true })}
+                                placeholder='Select a Sector'
                             />
                         </View>
+                        <View style={styles.calendarContainer}>
+                            <HomeCalendar/>
+                        </View>
                     </View>
-                </View>
-
-                <View style={styles.calendarContainer}>
-                    <HomeCalendar/>
                 </View>
             
             </View>
@@ -66,14 +77,6 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-    searchAndSelect: {
-        flex: 3,
-        justifyContent: 'center',
-        padding: 10,
-        borderColor: 'black',
-        borderWidth: 2,
-        backgroundColor: PRIMARY
-    },
     calendarContainer: {
         flex: 6,
         padding: 10

@@ -5,7 +5,7 @@ import {
     StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { BACKGROUND1 } from '../Constants';
+import { WHITE } from '../Constants';
 
 class Select extends React.Component {
     render() {
@@ -14,8 +14,8 @@ class Select extends React.Component {
         return (
             <View style={{flex: 1, maxHeight: 50, borderColor: 'black', borderWidth: 1}}>
                 <Picker
-                    style={styles.text}
-                    backgroundColor={BACKGROUND1}
+                    style={[styles.text, {backgroundColor: WHITE}]}
+                    backgroundColor={WHITE}
                     selectedValue={selectedValue || 'default'}
                     onValueChange={onSelect}
                     mode={dropdown ? 'dropdown' : 'dialog'}
