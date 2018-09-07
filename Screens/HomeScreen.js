@@ -37,7 +37,7 @@ class HomeScreen extends React.Component {
                 
                 <View style={{flex: 1}}>
                     <View style={styles.innerContainer}>
-                        <View style={{flex: 1, marginBottom: 10}}>
+                        <View style={styles.searchContainer}>
                             <OpportunitySearch
                                 onSelect={(searchTerm) => navigate('List', {
                                     headerType: 'search',
@@ -47,7 +47,7 @@ class HomeScreen extends React.Component {
                                 placeholder='Search Opportunities'
                             />
                         </View>
-                        <View style={{flex: 1, marginTop: 10, marginBottom: 50}}>
+                        <View style={styles.selectContainer}>
                             <Select
                                 data={sectorsData.map(({id, name}) => {return {value: id, label: name}})}
                                 onSelect={sectorID => this.setState({ popupIndex: sectorID, popupOpen: true })}
@@ -70,7 +70,7 @@ class HomeScreen extends React.Component {
         return (
             <DetailPopup
                 popupOpen={popupOpen}
-                buttonLabel='Grad Profiles'
+                buttonLabel='GRAD PROFILES'
                 onRequestClose={() => this.setState({ popupOpen: false })}
                 onButtonPress={
                     () => {
@@ -91,6 +91,15 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
+    searchContainer: {
+        flex: 1,
+        marginBottom: 10
+    },
+    selectContainer: {
+        flex: 1,
+        marginTop: 10,
+        marginBottom: 25
+    },
     calendarContainer: {
         flex: 6,
         padding: 10

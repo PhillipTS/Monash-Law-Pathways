@@ -6,9 +6,10 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
-import { Card } from 'react-native-elements';
 import GlobalStyles from '../Styles';
 import { SECONDARY_BACKGROUND, PRIMARY } from '../Constants';
+
+const defaultIcon = require('../images/default_icon.png');
 
 class DetailCard extends React.Component {
     render() {
@@ -17,15 +18,15 @@ class DetailCard extends React.Component {
 
         return (
             <TouchableOpacity onPress={onPress}>
-                <Card containerStyle={styles.cardContainer} >
-                        <View style={{flex: 1}}>
-                            <Text style={[styles.title, {color: PRIMARY, textAlign: 'center', textAlignVertical: 'center'}]}>{name.toUpperCase()}</Text>
-                        </View>
+                <View style={styles.cardContainer} >
+                    <Text style={[styles.title, styles.text, {marginLeft: 10}]}>
+                        {name.toUpperCase()}
+                    </Text>
                     <Image
-                        style={{flex: 1, width: 50, height: 50, backgroundColor: 'red', resizeMode: 'contain'}}
-                        source={require('../images/logo.png')}
+                        style={styles.icon}
+                        source={data.icon || defaultIcon}
                     />
-                </Card>
+                </View>
             </TouchableOpacity>
         )
     }
@@ -35,8 +36,17 @@ const styles = StyleSheet.create({...GlobalStyles,
     cardContainer: {
         flex: 1,
         flexDirection: 'row',
-        height: 100,
-        backgroundColor: SECONDARY_BACKGROUND
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: 80,
+        backgroundColor: SECONDARY_BACKGROUND,
+        margin: 10
+    },
+    icon: {
+        flex: 1,
+        height: 50,
+        width: 50,
+        resizeMode: 'contain'
     }
 });
 

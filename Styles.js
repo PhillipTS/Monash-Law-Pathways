@@ -31,6 +31,6 @@ export default {
         textAlignVertical: 'center'
     },
     text: {
-        color: 'black'
+        color: PRIMARY
     }
 }

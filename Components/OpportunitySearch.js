@@ -11,9 +11,7 @@ import { WHITE } from '../Constants';
 class OpportunitySearch extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchTerm: ''
-        };
+        this.state = { searchTerm: '' };
     }
 
     render() {

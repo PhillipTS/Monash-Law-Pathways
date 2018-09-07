@@ -62,7 +62,7 @@ class ListScreen extends React.Component {
         let headerComponent;
         switch (headerType) {
             case 'title':
-                headerComponent = <Title style={[styles.title, {borderColor: 'black', borderWidth: 1}]} h4>{titleValue}</Title>
+                headerComponent = <Title style={styles.title} h4>{titleValue}</Title>
                 break;
             case 'select':
                 headerComponent = 
@@ -101,12 +101,12 @@ class ListScreen extends React.Component {
                 }
                 <Background/>
 
-                <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: BACKGROUND}}>{headerComponent}</View>
+                <View style={styles.headerContainer}>{headerComponent}</View>
 
                 <View style={{flex: 9, width: '100%'}}>
                     {
                         data.length !== 0 ?
-                        <ScrollView contentContainerStyle={{borderColor: 'black', borderWidth: 2, paddingBottom: 20, backgroundColor: WHITE}}>
+                        <ScrollView contentContainerStyle={styles.scrollContainer}>
                             {data.map((obj, index) => 
                                 <DetailCard 
                                     key={obj.id}
@@ -116,8 +116,8 @@ class ListScreen extends React.Component {
                             )}
                         </ScrollView>
                         :
-                        <View style={{flex: 1, borderColor: 'black', borderWidth: 2, backgroundColor: SECONDARY_BACKGROUND}}>
-                            <Title style={{top: 100, textAlign: 'center', textAlignVertical: 'center'}} h4>
+                        <View style={styles.noDataContainer}>
+                            <Title style={styles.noDataLabel} h4>
                                 No {dataType === 'GradProfiles' ? 'Grad Profiles' : dataType} Found
                             </Title>
                         </View>
@@ -133,7 +133,7 @@ class ListScreen extends React.Component {
          return (
             <DetailPopup
                 popupOpen={popupOpen}
-                buttonLabel={dataType === 'Sectors' ? 'GradProfiles' : dataType === 'GradProfiles' ? 'Opportunities' : 'Interested'}
+                buttonLabel={dataType === 'Sectors' ? 'GRAD PROFILES' : dataType === 'GradProfiles' ? 'OPPORTUNITIES' : 'INTERESTED'}
                 onRequestClose={() => this.setState({ popupOpen: false })}
                 onButtonPress={
                     dataType === 'Sectors' ? () => {
@@ -163,7 +163,27 @@ class ListScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-    
+    headerContainer: {
+        flex: 1,
+        width: '80%',
+        marginBottom: 20
+    },
+    scrollContainer: {
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: WHITE
+    },
+    noDataContainer: {
+        flex: 1,
+        borderColor: 'black',
+        borderWidth: 2,
+        backgroundColor: SECONDARY_BACKGROUND
+    },
+    noDataLabel: {
+        top: 100,
+        textAlign: 'center',
+        textAlignVertical: 'center'
+    }
 });
 
 export default ListScreen;

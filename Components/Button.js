@@ -5,17 +5,14 @@ import {
     StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { SECONDARY } from '../Constants';
+import { PRIMARY, SECONDARY } from '../Constants';
 
 class Button extends React.Component {
     render() {
         const { onPress, label } = this.props;
         return (
-            <TouchableOpacity
-                style={styles.buttonContainer}
-                onPress={onPress}
-            >
-                <Text style={styles.buttonLabel}>{label}</Text>
+            <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
+                <Text style={[styles.text, styles.buttonLabel]}>{label}</Text>
             </TouchableOpacity>
         )
     }
@@ -24,6 +21,7 @@ class Button extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     buttonContainer: {
         flex: 1,
+        margin: 1,
         padding: 5,
         maxHeight: 50,
         borderColor: 'black',
