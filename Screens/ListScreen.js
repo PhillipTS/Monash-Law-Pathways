@@ -13,7 +13,7 @@ import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
-import { BACKGROUND, WHITE, PRIMARY, SECONDARY_BACKGROUND } from '../Constants';
+import { BACKGROUND, WHITE, SECONDARY_BACKGROUND } from '../Constants';
 
 const getData = (dataType, value) => {
     switch(dataType) {
@@ -103,7 +103,7 @@ class ListScreen extends React.Component {
 
                 <View style={{flex: 1, width: '80%', marginBottom: 20, backgroundColor: BACKGROUND}}>{headerComponent}</View>
 
-                <View style={{flex: 9, width: '100%', backgroundColor: BACKGROUND}}>
+                <View style={{flex: 9, width: '100%'}}>
                     {
                         data.length !== 0 ?
                         <ScrollView contentContainerStyle={{borderColor: 'black', borderWidth: 2, paddingBottom: 20, backgroundColor: WHITE}}>

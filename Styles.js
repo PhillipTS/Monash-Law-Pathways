@@ -27,7 +27,8 @@ export default {
         flex: 1,
         flexWrap: 'nowrap',
         margin: 5,
-        textAlign: 'center'
+        textAlign: 'center',
+        textAlignVertical: 'center'
     },
     text: {
         color: 'black'

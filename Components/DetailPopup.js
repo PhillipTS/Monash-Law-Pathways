@@ -23,19 +23,17 @@ class DetailPopup extends React.Component {
                 visible={popupOpen}
                 onRequestClose={onRequestClose}
             >
-                <View style={{flex: 19}}>
-                    <ScrollView contentContainerStyle={{alignItems: 'center'}}>
-                        <Image style={{width: width, height: 1000}} source={data.file}/>
-                    </ScrollView>
-                    { onButtonPress &&
-                        <View style={styles.linksContainer}>
-                            <Button
-                                label={buttonLabel}
-                                onPress={onButtonPress}
-                            />
-                        </View>
-                    }
-                </View>
+                <ScrollView>
+                    <Image style={{width: width, height: 1000}} source={data.file}/>
+                </ScrollView>
+                { onButtonPress &&
+                    <View style={styles.linksContainer}>
+                        <Button
+                            label={buttonLabel}
+                            onPress={onButtonPress}
+                        />
+                    </View>
+                }
             </Modal>
         )
     }
@@ -43,16 +41,10 @@ class DetailPopup extends React.Component {
 
 const styles = StyleSheet.create({...GlobalStyles,
     linksContainer: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
         backgroundColor: WHITE,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 10,
-        paddingBottom: 10,
         borderColor: 'black',
-        borderWidth: 4
+        borderWidth: 4,
+        height: 50
     }
 });
 

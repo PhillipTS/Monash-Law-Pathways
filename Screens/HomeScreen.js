@@ -70,7 +70,7 @@ class HomeScreen extends React.Component {
         return (
             <DetailPopup
                 popupOpen={popupOpen}
-                buttonLabel='Interested'
+                buttonLabel='Grad Profiles'
                 onRequestClose={() => this.setState({ popupOpen: false })}
                 onButtonPress={
                     () => {
