@@ -7,9 +7,9 @@ import {
     StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { SECONDARY_BACKGROUND, PRIMARY } from '../Constants';
+import { SECONDARY_BACKGROUND } from '../Constants';
 
-const defaultIcon = require('../images/default_icon.png');
+const defaultIcon = require('../images/compass_icon.png');
 
 class DetailCard extends React.Component {
     render() {
@@ -44,8 +44,8 @@ const styles = StyleSheet.create({...GlobalStyles,
     },
     icon: {
         flex: 1,
-        height: 50,
-        width: 50,
+        height: 100,
+        width: 100,
         resizeMode: 'contain'
     }
 });

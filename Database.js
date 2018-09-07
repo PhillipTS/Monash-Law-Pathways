@@ -53,8 +53,7 @@ export default {
         {
             id: 0,
             name: 'Just Leadership Program',
-            description: 'The program affords selected students the opportunity to affiliate with, learn from and listen to high profile speakers who are closely associated with social justice and equity issues in the law. Students get to attend a series of seminars on social justice issues and create a project related to these issues.',
-            file: require('./images/opportunities/Just-Leadership-Program.png'),
+            file: require('./images/opportunities/just-leadership-program.png'),
             icon: null,
             link: 'www.monashlss.com/single-post/2018/03/12/JUST-LEADERSHIP-PROGRAM',
             dates: [
@@ -75,9 +74,8 @@ export default {
         {
             id: 1,
             name: 'Study Abroad Exchange Program',
-            description: 'Going on exchange means you can stay enrolled at Monash, receive credit for overseas study towards your Monash degree and continue paying your Monash fees.There are 150 partner universities in more than 30 partner universities across Europe, North America, SouthAmerica, Asia and Africa. You may be eligible for a Monash travel grant.',
-            file: require('./images/opportunities/Monash-Abroad-Student-Exchange.png'),
-            icon: null,
+            file: require('./images/opportunities/monash-abroad-student-exchange.png'),
+            icon: require('./images/opportunities/opp_plane_icon.png'),
             link: 'www.monash.edu/study-abroad',
             dates: [
                 {
@@ -93,9 +91,8 @@ export default {
         {
             id: 2,
             name: 'Access Monash Mentoring Program',
-            description: 'Access Monash Mentoring is an exciting opportunity for Monash students who enjoy working with young people and want to make a difference. As a mentor, you will support secondary school students, helping them make informed decisions about their future. Access Monash is a volunteer program, however there is the opportunity to be supported by the Community Leaders Scholarship.',
-            file: require('./images/opportunities/Access-Monash-Mentoring-Program.png'),
-            icon: null,
+            file: require('./images/opportunities/access-monash-mentoring-program.png'),
+            icon: require('./images/opportunities/opp_monash_icon.png'),
             link: 'www.monash.edu/access/mentoring/become_mentor',
             dates: [
                 {
@@ -115,10 +112,183 @@ export default {
         {
             id: 3,
             name: 'Clinical Externships (LAW4803)',
-            description: 'A clinical externship will give you the opportunity to engage in placement hosted by, or under the aegis of, an external organisation. Under professional supervision, you will undertake a range of activities involving work for end clients/ beneficiaries of that host organisation.',
-            file: require('./images/opportunities/Clinical-Externships.png'),
+            file: require('./images/opportunities/clinical-externships.png'),
             icon: null,
-            link: 'www.monash.edu/pubs/2018handbooks/units/LAW4803',
+            link: 'www.monash.edu/__data/assets/pdf_file/0019/1383040/LAW4803-T2-2018-Clinical-Handbook-04_05_2018.pdf',
+            dates: null
+        },
+        {
+            id: 4,
+            name: 'Ancora Imparo Program',
+            file: require('./images/opportunities/ancora-imparo-program.png'),
+            icon: require('./images/opportunities/opp_monash_icon.png'),
+            link: 'https://www.monash.edu/student-leadership/ancora-imparo',
+            dates: null
+        },
+        {
+            id: 5,
+            name: 'Law Ambassador Program',
+            file: require('./images/opportunities/law-ambassador-program.png'),
+            icon: require('./images/opportunities/opp_monash_icon.png'),
+            link: 'https://www.monash.edu/law/current-students/resources/student-experience/leadership/ambassadors',
+            dates: [
+                {
+                    name: 'Applications Open',
+                    date: new Date("2019-03-01")
+                },
+                {
+                    name: 'Applications Close',
+                    date: new Date("2019-03-15")
+                },
+                {
+                    name: 'Outcome Released',
+                    date: new Date("2019-03-23")
+                }
+            ]
+        },
+        {
+            id: 6,
+            name: 'Monash University Law Review',
+            file: require('./images/opportunities/law-review.png'),
+            icon: require('./images/opportunities/opp_book_icon.png'),
+            link: 'https://www.monash.edu/law/news-and-events/publications/monlr',
+            dates: [
+                {
+                    name: 'Applications Due',
+                    date: new Date("2019-02-06")
+                }
+            ]
+        },
+        {
+            id: 7,
+            name: 'LSS Committeeship',
+            file: require('./images/opportunities/lss-committeeship.png'),
+            icon: null,
+            link: 'https://www.monashlss.com/elections',
+            dates: null
+        },
+        {
+            id: 8,
+            name: 'LSS Competitions',
+            file: require('./images/opportunities/lss-competitions.png'),
+            icon: null,
+            link: 'https://www.monashlss.com/competitions',
+            dates: [
+                {
+                    name: 'General Moot Opens',
+                    date: new Date("2019-02-21")
+                },
+                {
+                    name: 'General Moot Closes',
+                    date: new Date("2019-02-28")
+                },
+                {
+                    name: 'Client Interview Opens',
+                    date: new Date("2019-03-13")
+                },
+                {
+                    name: 'Client Interview Closes',
+                    date: new Date("2019-03-23")
+                },
+                {
+                    name: 'M&A Opens',
+                    date: new Date("2019-03-21")
+                },
+                {
+                    name: 'M&A Closes',
+                    date: new Date("2019-04-06")
+                },
+                {
+                    name: 'Negotiations Open',
+                    date: new Date("2019-04-09")
+                },
+                {
+                    name: 'Negotiations Close',
+                    date: new Date("2019-04-18")
+                },
+                {
+                    name: 'First Year Moot Opens',
+                    date: new Date("2019-07-18")
+                },
+                {
+                    name: 'First Year Moot Closes',
+                    date: new Date("2019-07-27")
+                },
+                {
+                    name: 'IHL Moot Opens',
+                    date: new Date("2019-07-25")
+                },
+                {
+                    name: 'IHL Moot Closes',
+                    date: new Date("2019-08-06")
+                },
+                {
+                    name: 'WitEx Opens',
+                    date: new Date("2019-08-13")
+                },
+                {
+                    name: 'WitEx Closes',
+                    date: new Date("2019-08-31")
+                }
+            ]
+        },
+        {
+            id: 9,
+            name: 'Professional Practice (LAW4328)',
+            file: require('./images/opportunities/professional-practice.png'),
+            icon: require('./images/opportunities/opp_hand_icon.png'),
+            link: 'http://www.monash.edu/pubs/2018handbooks/units/LAW4328.html',
+            dates: [
+                {
+                    name: 'Applications Close',
+                    date: new Date("2019-09-28")
+                }
+            ]
+        },
+        {
+            id: 10,
+            name: 'Vic Legal Aid Aboriginal & Torres Strait Islander Opportunities',
+            file: require('./images/opportunities/vic-legal-aid.png'),
+            icon: require('./images/opportunities/opp_hand_icon.png'),
+            link: 'https://jobs.careers.vic.gov.au/jobtools/jncustomsearch.viewFullSingle?in_organid=17342&in_jnCounter=222719643&in_jobDate=all',
+            dates: [
+                {
+                    name: '2020 Applications Open',
+                    date: new Date("2019-04-01")
+                }
+            ]
+        },
+        {
+            id: 11,
+            name: 'Volunteering At MOLS',
+            file: require('./images/opportunities/volunteering-at-mols.png'),
+            icon: require('./images/opportunities/opp_hand_icon.png'),
+            link: 'https://www.monash.edu/law/home/cle/mlcc/volunteer',
+            dates: [
+                {
+                    name: 'April Intake Applications Open',
+                    date: new Date("2019-02-25")
+                },
+                {
+                    name: 'April Intake Applications Close',
+                    date: new Date("2019-03-04")
+                },
+                {
+                    name: 'September Intake Applications Open',
+                    date: new Date("2019-09-03")
+                },
+                {
+                    name: 'September Intake Applications Close',
+                    date: new Date("2019-09-11")
+                }
+            ]
+        },
+        {
+            id: 12,
+            name: 'Work Integrated Learning (LAW4810)',
+            file: require('./images/opportunities/wil.png'),
+            icon: null,
+            link: 'http://www.monash.edu/pubs/2018handbooks/units/LAW4810.html',
             dates: null
         }
     ],
