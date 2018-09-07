@@ -1,16 +1,21 @@
 import React from 'react';
 import {
     View,
-    Image
+    Image,
+    TouchableOpacity
 } from 'react-native';
 
 class NavBar extends React.Component {
     render() {
+        const { goToHome } = this.props;
         return (
-            <View style={{flex: 1, alignItems: 'center'}}>
+            <TouchableOpacity
+                style={{flex: 1, alignItems: 'center'}}
+                onPress={goToHome}
+            >
                 <Image source={require('../images/banner_blue_background.png')}/>
                 <View/>
-            </View>
+            </TouchableOpacity>
         )
     }
 }

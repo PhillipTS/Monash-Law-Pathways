@@ -1,4 +1,5 @@
 import React from 'react';
+import { StackActions, NavigationActions } from 'react-navigation';
 import {
     View,
     Image,
@@ -6,30 +7,37 @@ import {
     Dimensions
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import NavBar from '../Components/NavBar';
+import NavigationOptions from '../Components/HeaderBar';
+import Background from '../Components/Background';
 import Button from '../Components/Button';
-import { PRIMARY } from '../Constants';
+import { PRIMARY, BACKGROUND } from '../Constants';
 
 class StartScreen extends React.Component {
-    static navigationOptions = {
-        headerTitle: <NavBar/>
-    };
+    static navigationOptions = NavigationOptions;
 
     render() {
-        const { navigate } = this.props.navigation;
+        const { dispatch } = this.props.navigation;
         const { width } = Dimensions.get('window');
 
         return (
             <View style={styles.box}>
-                    <View style={{flex: 5}}>
-                        <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../images/large_logo.png')}/>
-                    </View>
-                    <View style={styles.buttonContainer}>
-                        <Button
-                            onPress={() => navigate('Home')}
-                            label='     START     '
-                        />
-                    </View>
+                {//<Background darkTheme/>
+                }
+
+                <View style={{flex: 5}}>
+                    <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../images/large_logo.png')}/>
+                </View>
+                <View style={styles.buttonContainer}>
+                    <Button
+                        onPress={() => dispatch(
+                            StackActions.reset({
+                                index: 0,
+                                actions: [NavigationActions.navigate({ routeName: 'Home' })],
+                            })
+                        )}
+                        label='     START     '
+                    />
+                </View>
             </View>
         )
     }

@@ -1,5 +1,21 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "name": "Explore The Law",
+    "sdkVersion": "27.0.0",
+    "icon": "./images/logo.png",
+    "splash": {
+      "image": "./images/large_logo.png",
+      "backgroundColor": "#033D5E",
+      "resiseMode": "contain"
+    },
+		"description": "Hub to discover Law Opportunites for Students. Explore what's out there!",
+		"version": "0.1.0",
+		"orientation": "portrait",
+		"ios": {
+			"bundleIdentifier": "com.pathwaysToSuccess.exploreTheLaw"
+		},
+		"android": {
+			"package": "com.pathwaysToSuccess.exploreTheLaw"
+		}
   }
 }

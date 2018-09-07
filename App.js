@@ -8,17 +8,9 @@ import { BACKGROUND } from './Constants';
 
 const App = createStackNavigator(
   {
-    //Start: StartScreen,
+    Start: StartScreen,
     Home: HomeScreen,
     List: ListScreen
-  },
-  {
-    navigationOptions : {
-      headerTitle: <NavBar/>,
-      headerStyle: {
-        backgroundColor: BACKGROUND
-      }
-    }
   }
 );
 
