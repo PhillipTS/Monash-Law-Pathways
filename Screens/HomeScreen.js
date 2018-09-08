@@ -33,7 +33,7 @@ class HomeScreen extends React.Component {
 
                 <StatusBar/>
                 {this.renderPopup(sectorsData)}
-                <Background/>
+                <Background darkTheme/>
                 
                 <View style={{flex: 1}}>
                     <View style={styles.innerContainer}>

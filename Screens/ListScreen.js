@@ -32,9 +32,7 @@ const getSectors = (industryID) => Database.Sectors.filter(sector => sector.indu
 
 const getGradProfiles = (sectorID) => Database.GradProfiles.filter(profile => profile.sector === sectorID);
 
-const getOpportunities = (searchTerm) =>
-    Database.Opportunities.filter(({ name, description }) =>
-        name.toUpperCase().includes(searchTerm.toUpperCase()) || description.toUpperCase().includes(searchTerm.toUpperCase()));
+const getOpportunities = (searchTerm) => Database.Opportunities.filter(({ name }) => name.toUpperCase().includes(searchTerm.toUpperCase()));
 
 class ListScreen extends React.Component {
     static navigationOptions = NavigationOptions;

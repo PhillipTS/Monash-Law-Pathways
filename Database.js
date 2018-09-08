@@ -46,7 +46,15 @@ export default {
             description: 'Graduate - Autralian Top Tier Firm',
             file: require('./images/gradProfiles/tom-stephens.png'),
             icon: require('./images/gradProfiles/grad_icon.png'),
-            sector: null
+            sector: 1
+        },
+        {
+            id: 6,
+            name: 'Sarah',
+            description: 'Graduate Lawyer - Clayton UTZ',
+            file: require('./images/gradProfiles/sarah.png'),
+            icon: require('./images/gradProfiles/grad_icon.png'),
+            sector: 1
         }
     ],
     Opportunities: [
