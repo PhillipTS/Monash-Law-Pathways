@@ -10,7 +10,7 @@ import {
 import GlobalStyles from '../Styles';
 import NavigationOptions from '../Components/HeaderBar';
 import Button from '../Components/Button';
-import { PRIMARY, BACKGROUND, WHITE } from '../Constants';
+import { PRIMARY, WHITE } from '../Constants';
 
 class StartScreen extends React.Component {
     static navigationOptions = NavigationOptions;
@@ -21,7 +21,7 @@ class StartScreen extends React.Component {
 
         return (
             <View style={styles.box}>
-            
+
                 <View style={{flex: 5}}>
                     <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../images/large_logo.png')}/>
                 </View>

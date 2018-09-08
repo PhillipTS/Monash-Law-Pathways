@@ -1,10 +1,10 @@
 import React from 'react';
 import {
     View,
+    Text,
     ScrollView,
     StyleSheet
 } from 'react-native';
-import {Text as Title } from 'react-native-elements';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
 import NavigationOptions from '../Components/HeaderBar';
@@ -13,7 +13,7 @@ import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
-import { BACKGROUND, WHITE, SECONDARY_BACKGROUND } from '../Constants';
+import { WHITE, SECONDARY_BACKGROUND } from '../Constants';
 
 const getData = (dataType, value) => {
     switch(dataType) {
@@ -62,7 +62,7 @@ class ListScreen extends React.Component {
         let headerComponent;
         switch (headerType) {
             case 'title':
-                headerComponent = <Title style={styles.title} h4>{titleValue}</Title>
+                headerComponent = <Text style={[styles.title, {fontSize: 18}]}>{titleValue}</Text>
                 break;
             case 'select':
                 headerComponent = 
@@ -117,9 +117,9 @@ class ListScreen extends React.Component {
                         </ScrollView>
                         :
                         <View style={styles.noDataContainer}>
-                            <Title style={styles.noDataLabel} h4>
+                            <Text style={styles.noDataLabel} h4>
                                 No {dataType === 'GradProfiles' ? 'Grad Profiles' : dataType} Found
-                            </Title>
+                            </Text>
                         </View>
                     }
                 </View>
@@ -181,6 +181,7 @@ const styles = StyleSheet.create({...GlobalStyles,
     },
     noDataLabel: {
         top: 100,
+        fontSize: 18,
         textAlign: 'center',
         textAlignVertical: 'center'
     }

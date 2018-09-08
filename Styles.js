@@ -1,10 +1,4 @@
-import {
-    BACKGROUND,
-    SECONDARY,
-    PRIMARY,
-    SECONDARY_BACKGROUND,
-    WHITE
-} from './Constants';
+import { PRIMARY, BACKGROUND, SECONDARY_BACKGROUND } from './Constants';
 
 export default {
     container: {
