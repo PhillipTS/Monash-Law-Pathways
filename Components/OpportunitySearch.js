@@ -37,6 +37,7 @@ const styles = StyleSheet.create({...GlobalStyles,
     componentContainer: {
         flex: 1,
         flexDirection: 'row',
+        padding: 1,
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
         borderWidth: 1,

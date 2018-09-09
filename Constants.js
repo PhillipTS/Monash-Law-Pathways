@@ -13,7 +13,13 @@ export const SECONDARY_BACKGROUND = '#ABD5D0';   // Pastel Blue
 
 export const WHITE = '#FFF';   // White
 
+// Fonts
+export const TITLE_FONT = 'oswald';
 
+export const TEXT_FONT = 'open-sans';
+
+
+// Other
 export const BORDER_RADIUS = 5; // Amount of curve on corners
 
 
@@ -23,5 +29,8 @@ export default {
     SECONDARY,
     PRIMARY,
     SECONDARY_BACKGROUND,
-    WHITE
+    WHITE,
+    TITLE_FONT,
+    TEXT_FONT,
+    BORDER_RADIUS
 };

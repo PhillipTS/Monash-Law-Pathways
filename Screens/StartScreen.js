@@ -7,24 +7,40 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
+import { Font } from 'expo';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 import { PRIMARY, WHITE } from '../Constants';
 
 class StartScreen extends React.Component {
-    static navigationOptions = {
-        header: null
-    };
+    static navigationOptions = { header: null };
+
+    constructor(props) {
+        super(props);
+        this.state = { fontsLoaded: false };
+    }
+
+    async componentDidMount() {
+        await Font.loadAsync({
+            'open-sans': require('../assets/fonts/OpenSans-Regular.ttf'),
+            'oswald': require('../assets/fonts/Oswald-Regular.ttf')
+        });
+
+        this.setState({ fontsLoaded: true });
+    }
 
     render() {
         const { dispatch } = this.props.navigation;
+        const { fontsLoaded } = this.state;
         const { width } = Dimensions.get('window');
+
+        if (!fontsLoaded) {return <View/>}
 
         return (
             <View style={styles.box}>
 
                 <View style={{flex: 5}}>
-                    <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../images/large_logo.png')}/>
+                    <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../assets/images/large_logo.png')}/>
                 </View>
 
                 <Text style={[styles.title, styles.subTitle]}>START YOUR PATHWAY TO SUCCESS</Text>

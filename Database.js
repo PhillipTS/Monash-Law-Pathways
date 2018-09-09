@@ -4,56 +4,56 @@ export default {
             id: 0,
             name: 'Kate Schmidt',
             description: 'Layer in the family & relationship law group - Landers & Rogers',
-            file: require('./images/gradProfiles/kate-schmidt.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/kate-schmidt.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 2
         },
         {
             id: 1,
             name: 'Shane Khong',
             description: 'Transfer Pricing Consultant - BDO',
-            file: require('./images/gradProfiles/shane-khong.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/shane-khong.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 4
         },
         {
             id: 2,
             name: 'Henry Kerstens',
             description: 'Graduate - Herbert Smith Freehills',
-            file: require('./images/gradProfiles/henry-kerstens.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/henry-kerstens.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 1
         },
         {
             id: 3,
             name: 'Isabelle Scott',
             description: 'Graduate - Autralian Top Tier Firm',
-            file: require('./images/gradProfiles/isabelle-scott.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/isabelle-scott.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 1
         },
         {
             id: 4,
             name: 'Meg Stacey',
             description: 'Graduate Lawyer - Herbert Smith Freehills',
-            file: require('./images/gradProfiles/meg-stacey.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/meg-stacey.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 1
         },
         {
             id: 5,
             name: 'Tom Stephens',
             description: 'Graduate - Autralian Top Tier Firm',
-            file: require('./images/gradProfiles/tom-stephens.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/tom-stephens.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 1
         },
         {
             id: 6,
             name: 'Sarah',
             description: 'Graduate Lawyer - Clayton UTZ',
-            file: require('./images/gradProfiles/sarah.png'),
-            icon: require('./images/gradProfiles/grad_icon.png'),
+            file: require('./assets/images/gradProfiles/sarah.png'),
+            icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 1
         }
     ],
@@ -61,7 +61,7 @@ export default {
         {
             id: 0,
             name: 'Just Leadership Program',
-            file: require('./images/opportunities/just-leadership-program.png'),
+            file: require('./assets/images/opportunities/just-leadership-program.png'),
             icon: null,
             link: 'www.monashlss.com/single-post/2018/03/12/JUST-LEADERSHIP-PROGRAM',
             dates: [
@@ -82,8 +82,8 @@ export default {
         {
             id: 1,
             name: 'Study Abroad Exchange Program',
-            file: require('./images/opportunities/monash-abroad-student-exchange.png'),
-            icon: require('./images/opportunities/opp_plane_icon.png'),
+            file: require('./assets/images/opportunities/monash-abroad-student-exchange.png'),
+            icon: require('./assets/images/opportunities/opp_plane_icon.png'),
             link: 'www.monash.edu/study-abroad',
             dates: [
                 {
@@ -99,8 +99,8 @@ export default {
         {
             id: 2,
             name: 'Access Monash Mentoring Program',
-            file: require('./images/opportunities/access-monash-mentoring-program.png'),
-            icon: require('./images/opportunities/opp_monash_icon.png'),
+            file: require('./assets/images/opportunities/access-monash-mentoring-program.png'),
+            icon: require('./assets/images/opportunities/opp_monash_icon.png'),
             link: 'www.monash.edu/access/mentoring/become_mentor',
             dates: [
                 {
@@ -120,7 +120,7 @@ export default {
         {
             id: 3,
             name: 'Clinical Externships (LAW4803)',
-            file: require('./images/opportunities/clinical-externships.png'),
+            file: require('./assets/images/opportunities/clinical-externships.png'),
             icon: null,
             link: 'www.monash.edu/__data/assets/pdf_file/0019/1383040/LAW4803-T2-2018-Clinical-Handbook-04_05_2018.pdf',
             dates: null
@@ -128,16 +128,16 @@ export default {
         {
             id: 4,
             name: 'Ancora Imparo Program',
-            file: require('./images/opportunities/ancora-imparo-program.png'),
-            icon: require('./images/opportunities/opp_monash_icon.png'),
+            file: require('./assets/images/opportunities/ancora-imparo-program.png'),
+            icon: require('./assets/images/opportunities/opp_monash_icon.png'),
             link: 'https://www.monash.edu/student-leadership/ancora-imparo',
             dates: null
         },
         {
             id: 5,
             name: 'Law Ambassador Program',
-            file: require('./images/opportunities/law-ambassador-program.png'),
-            icon: require('./images/opportunities/opp_monash_icon.png'),
+            file: require('./assets/images/opportunities/law-ambassador-program.png'),
+            icon: require('./assets/images/opportunities/opp_monash_icon.png'),
             link: 'https://www.monash.edu/law/current-students/resources/student-experience/leadership/ambassadors',
             dates: [
                 {
@@ -157,8 +157,8 @@ export default {
         {
             id: 6,
             name: 'Monash University Law Review',
-            file: require('./images/opportunities/law-review.png'),
-            icon: require('./images/opportunities/opp_book_icon.png'),
+            file: require('./assets/images/opportunities/law-review.png'),
+            icon: require('./assets/images/opportunities/opp_book_icon.png'),
             link: 'https://www.monash.edu/law/news-and-events/publications/monlr',
             dates: [
                 {
@@ -170,7 +170,7 @@ export default {
         {
             id: 7,
             name: 'LSS Committeeship',
-            file: require('./images/opportunities/lss-committeeship.png'),
+            file: require('./assets/images/opportunities/lss-committeeship.png'),
             icon: null,
             link: 'https://www.monashlss.com/elections',
             dates: null
@@ -178,7 +178,7 @@ export default {
         {
             id: 8,
             name: 'LSS Competitions',
-            file: require('./images/opportunities/lss-competitions.png'),
+            file: require('./assets/images/opportunities/lss-competitions.png'),
             icon: null,
             link: 'https://www.monashlss.com/competitions',
             dates: [
@@ -243,8 +243,8 @@ export default {
         {
             id: 9,
             name: 'Professional Practice (LAW4328)',
-            file: require('./images/opportunities/professional-practice.png'),
-            icon: require('./images/opportunities/opp_hand_icon.png'),
+            file: require('./assets/images/opportunities/professional-practice.png'),
+            icon: require('./assets/images/opportunities/opp_hand_icon.png'),
             link: 'http://www.monash.edu/pubs/2018handbooks/units/LAW4328.html',
             dates: [
                 {
@@ -256,8 +256,8 @@ export default {
         {
             id: 10,
             name: 'Vic Legal Aid Aboriginal & Torres Strait Islander Opportunities',
-            file: require('./images/opportunities/vic-legal-aid.png'),
-            icon: require('./images/opportunities/opp_hand_icon.png'),
+            file: require('./assets/images/opportunities/vic-legal-aid.png'),
+            icon: require('./assets/images/opportunities/opp_hand_icon.png'),
             link: 'https://jobs.careers.vic.gov.au/jobtools/jncustomsearch.viewFullSingle?in_organid=17342&in_jnCounter=222719643&in_jobDate=all',
             dates: [
                 {
@@ -269,8 +269,8 @@ export default {
         {
             id: 11,
             name: 'Volunteering At MOLS',
-            file: require('./images/opportunities/volunteering-at-mols.png'),
-            icon: require('./images/opportunities/opp_hand_icon.png'),
+            file: require('./assets/images/opportunities/volunteering-at-mols.png'),
+            icon: require('./assets/images/opportunities/opp_hand_icon.png'),
             link: 'https://www.monash.edu/law/home/cle/mlcc/volunteer',
             dates: [
                 {
@@ -294,7 +294,7 @@ export default {
         {
             id: 12,
             name: 'Work Integrated Learning (LAW4810)',
-            file: require('./images/opportunities/wil.png'),
+            file: require('./assets/images/opportunities/wil.png'),
             icon: null,
             link: 'http://www.monash.edu/pubs/2018handbooks/units/LAW4810.html',
             dates: null
@@ -304,47 +304,47 @@ export default {
         {
             id: 0,
             name: 'Barristers',
-            file: require('./images/sectors/Barristers.png'),
+            file: require('./assets/images/sectors/Barristers.png'),
         },
         {
             id: 1,
             name: 'Top Tier Law Firms',
-            file: require('./images/sectors/Top-Tier-Law-Firms.png'),
+            file: require('./assets/images/sectors/Top-Tier-Law-Firms.png'),
         },
         {
             id: 2,
             name: 'Mid Tier Law Firms',
-            file: require('./images/sectors/Mid-Tier-Law-Firms.png'),
+            file: require('./assets/images/sectors/Mid-Tier-Law-Firms.png'),
         },
         {
             id: 3,
             name: 'Boutique Law Firms',
-            file: require('./images/sectors/Boutique-Law-Firms.png'),
+            file: require('./assets/images/sectors/Boutique-Law-Firms.png'),
         },
         {
             id: 4,
             name: 'Professional Services',
-            file: require('./images/sectors/Professional-Services.png'),
+            file: require('./assets/images/sectors/Professional-Services.png'),
         },
         {
             id: 5,
             name: 'Education And Academia',
-            file: require('./images/sectors/Education.png'),
+            file: require('./assets/images/sectors/Education.png'),
         },
         {
             id: 6,
             name: 'Community Legal Aid',
-            file: require('./images/sectors/Community-Legal-Aid.png'),
+            file: require('./assets/images/sectors/Community-Legal-Aid.png'),
         },
         {
             id: 7,
             name: 'Government',
-            file: require('./images/sectors/Government.png'),
+            file: require('./assets/images/sectors/Government.png'),
         },
         {
             id: 8,
             name: 'The Court System',
-            file: require('./images/sectors/Court-System.png'),
+            file: require('./assets/images/sectors/Court-System.png'),
         }
     ]
 }

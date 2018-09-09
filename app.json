@@ -2,9 +2,9 @@
   "expo": {
     "name": "Explore The Law",
     "sdkVersion": "27.0.0",
-    "icon": "./images/logo.png",
+    "icon": "./assets/images/logo.png",
     "splash": {
-      "image": "./images/large_logo.png",
+      "image": "./assets/images/large_logo.png",
       "backgroundColor": "#033D5E",
       "resiseMode": "contain"
     },

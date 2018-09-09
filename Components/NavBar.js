@@ -13,7 +13,7 @@ class NavBar extends React.Component {
                 style={{flex: 1, alignItems: 'center'}}
                 onPress={goToHome}
             >
-                <Image source={require('../images/banner_blue_background.png')}/>
+                <Image source={require('../assets/images/banner_blue_background.png')}/>
                 <View/>
             </TouchableOpacity>
         )

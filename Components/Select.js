@@ -14,7 +14,7 @@ class Select extends React.Component {
         return (
             <View style={styles.componentContainer}>
                 <Picker
-                    style={styles.text}
+                    itemStyle={styles.text}
                     backgroundColor={WHITE}
                     selectedValue={selectedValue || 'default'}
                     onValueChange={onSelect}

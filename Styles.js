@@ -1,4 +1,4 @@
-import { PRIMARY, BACKGROUND, SECONDARY_BACKGROUND, BORDER_RADIUS } from './Constants';
+import { PRIMARY, BACKGROUND, SECONDARY_BACKGROUND, BORDER_RADIUS, TITLE_FONT, TEXT_FONT } from './Constants';
 
 export default {
     container: {
@@ -18,13 +18,13 @@ export default {
         borderRadius: BORDER_RADIUS
     },
     title: {
-        flex: 1,
-        flexWrap: 'nowrap',
         margin: 5,
         textAlign: 'center',
-        textAlignVertical: 'center'
+        textAlignVertical: 'center',
+        fontFamily: TITLE_FONT
     },
     text: {
-        color: PRIMARY
+        color: PRIMARY,
+        fontFamily: TEXT_FONT
     }
 }

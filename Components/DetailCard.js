@@ -7,9 +7,9 @@ import {
     StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { SECONDARY_BACKGROUND } from '../Constants';
+import { SECONDARY_BACKGROUND, BORDER_RADIUS } from '../Constants';
 
-const defaultIcon = require('../images/compass_icon.png');
+const defaultIcon = require('../assets/images/compass_icon.png');
 
 class DetailCard extends React.Component {
     render() {
@@ -19,13 +19,12 @@ class DetailCard extends React.Component {
         return (
             <TouchableOpacity onPress={onPress}>
                 <View style={styles.cardContainer} >
-                    <Text style={[styles.title, styles.text, {marginLeft: 10}]}>
+                    <Text style={[styles.title, styles.text, {flex: 1, marginLeft: 10}]}>
                         {name.toUpperCase()}
                     </Text>
-                    <Image
-                        style={styles.icon}
-                        source={data.icon || defaultIcon}
-                    />
+                    <View>
+                        <Image style={styles.icon} source={data.icon || defaultIcon}/>
+                    </View>
                 </View>
             </TouchableOpacity>
         )
@@ -38,9 +37,12 @@ const styles = StyleSheet.create({...GlobalStyles,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        margin: 10,
         height: 80,
-        backgroundColor: SECONDARY_BACKGROUND,
-        margin: 10
+        borderColor: 'black',
+        borderWidth: 1,
+        borderRadius: BORDER_RADIUS,
+        backgroundColor: SECONDARY_BACKGROUND
     },
     icon: {
         flex: 1,

@@ -7,8 +7,8 @@ import {
 } from 'react-native';
 import GlobalStyles from '../Styles';
 
-const light = require('../images/background_light.png');
-const dark = require('../images/background_dark.png');
+const light = require('../assets/images/background_light.png');
+const dark = require('../assets/images/background_dark.png');
 
 class Background extends React.Component {
     render() {

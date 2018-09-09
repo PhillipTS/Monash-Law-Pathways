@@ -2,7 +2,8 @@ import React from 'react';
 import {
     View,
     StatusBar,
-    StyleSheet
+    StyleSheet,
+    Dimensions
 } from 'react-native';
 import GlobalStyles from '../Styles';
 import Database from '../Database';
@@ -26,6 +27,8 @@ class HomeScreen extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
+        const { fontsLoaded } = this.state;
+        const { width } = Dimensions.get('window');
         const sectorsData = Database.Sectors;
 
         return (
@@ -36,10 +39,10 @@ class HomeScreen extends React.Component {
                 <Background darkTheme/>
                 
                 <View style={{flex: 1}}>
-                    <View style={styles.innerContainer}>
+                    <View style={[styles.innerContainer, {width: width - 60}]}>
                         <View style={styles.searchContainer}>
                             <OpportunitySearch
-                                onSelect={(searchTerm) => navigate('List', {
+                                onSelect={searchTerm => navigate('List', {
                                     headerType: 'search',
                                     referingValue: searchTerm,
                                     dataType: 'Opportunities'
