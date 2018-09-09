@@ -14,6 +14,9 @@ export const SECONDARY_BACKGROUND = '#ABD5D0';   // Pastel Blue
 export const WHITE = '#FFF';   // White
 
 
+export const BORDER_RADIUS = 5; // Amount of curve on corners
+
+
 export default {
     APP_NAME,
     BACKGROUND,

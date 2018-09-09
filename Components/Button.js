@@ -5,7 +5,7 @@ import {
     StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { PRIMARY, SECONDARY } from '../Constants';
+import { SECONDARY, BORDER_RADIUS } from '../Constants';
 
 class Button extends React.Component {
     render() {
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         margin: 1,
         padding: 5,
         maxHeight: 50,
+        borderRadius: BORDER_RADIUS,
         borderColor: 'black',
         borderWidth: 1,
         backgroundColor: SECONDARY

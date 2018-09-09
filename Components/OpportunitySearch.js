@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
-import { WHITE } from '../Constants';
+import { WHITE, BORDER_RADIUS } from '../Constants';
 
 class OpportunitySearch extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class OpportunitySearch extends React.Component {
         return (
             <View style={styles.componentContainer}>
                 <TextInput
-                    style={styles.searchContainer}
+                    style={[styles.searchContainer, styles.text]}
                     placeholder={placeholder}
                     onChangeText={(searchTerm) => this.setState({ searchTerm })}
                 />
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({...GlobalStyles,
     componentContainer: {
         flex: 1,
         flexDirection: 'row',
+        borderRadius: BORDER_RADIUS,
         borderColor: 'black',
         borderWidth: 1,
         backgroundColor: WHITE

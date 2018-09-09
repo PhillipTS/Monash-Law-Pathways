@@ -8,12 +8,13 @@ import {
     Dimensions
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import NavigationOptions from '../Components/HeaderBar';
 import Button from '../Components/Button';
 import { PRIMARY, WHITE } from '../Constants';
 
 class StartScreen extends React.Component {
-    static navigationOptions = NavigationOptions;
+    static navigationOptions = {
+        header: null
+    };
 
     render() {
         const { dispatch } = this.props.navigation;
@@ -26,7 +27,7 @@ class StartScreen extends React.Component {
                     <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../images/large_logo.png')}/>
                 </View>
 
-                <Text style={[styles.title, {color: WHITE, fontSize: 16}]}>START YOUR PATHWAY TO SUCCESS</Text>
+                <Text style={[styles.title, styles.subTitle]}>START YOUR PATHWAY TO SUCCESS</Text>
 
                 <View style={styles.buttonContainer}>
                     <Button
@@ -52,15 +53,21 @@ const styles = StyleSheet.create({...GlobalStyles,
         alignItems: 'center',
         justifyContent: 'center'
     },
+    subTitle: {
+        color: WHITE,
+        fontSize: 16,
+        fontStyle: 'italic',
+        paddingBottom: 50
+    },
     buttonContainer: {
-        flex: 1,/*  Failed attempt at shadow
+        flex: 1,
+        /*  Failed attempt at shadow
         shadowColor: 'black',
         shadowOffset: {
             width: 100,
             height: 100
         },
         shadowOpacity: 0.5,*/
-        marginBottom: 20
     }
 })
 

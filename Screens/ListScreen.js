@@ -13,7 +13,7 @@ import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
-import { WHITE, SECONDARY_BACKGROUND } from '../Constants';
+import { WHITE, SECONDARY_BACKGROUND, BORDER_RADIUS } from '../Constants';
 
 const getData = (dataType, value) => {
     switch(dataType) {
@@ -114,8 +114,8 @@ class ListScreen extends React.Component {
                             )}
                         </ScrollView>
                         :
-                        <View style={styles.noDataContainer}>
-                            <Text style={styles.noDataLabel} h4>
+                        <View style={[styles.scrollContainer, {flex: 1, backgroundColor: SECONDARY_BACKGROUND}]}>
+                            <Text style={styles.noDataLabel}>
                                 No {dataType === 'GradProfiles' ? 'Grad Profiles' : dataType} Found
                             </Text>
                         </View>
@@ -168,14 +168,9 @@ const styles = StyleSheet.create({...GlobalStyles,
     },
     scrollContainer: {
         borderColor: 'black',
+        borderRadius: BORDER_RADIUS,
         borderWidth: 2,
         backgroundColor: WHITE
-    },
-    noDataContainer: {
-        flex: 1,
-        borderColor: 'black',
-        borderWidth: 2,
-        backgroundColor: SECONDARY_BACKGROUND
     },
     noDataLabel: {
         top: 100,

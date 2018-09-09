@@ -1,4 +1,4 @@
-import { PRIMARY, BACKGROUND, SECONDARY_BACKGROUND } from './Constants';
+import { PRIMARY, BACKGROUND, SECONDARY_BACKGROUND, BORDER_RADIUS } from './Constants';
 
 export default {
     container: {
@@ -15,7 +15,7 @@ export default {
         borderColor: 'black',
         borderWidth: 2,
         backgroundColor: SECONDARY_BACKGROUND,
-        borderRadius: 5
+        borderRadius: BORDER_RADIUS
     },
     title: {
         flex: 1,

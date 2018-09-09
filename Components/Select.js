@@ -5,16 +5,16 @@ import {
     StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
-import { WHITE } from '../Constants';
+import { WHITE, BORDER_RADIUS } from '../Constants';
 
 class Select extends React.Component {
     render() {
         const { placeholder, selectedValue, data, onSelect, dropdown } = this.props;
 
         return (
-            <View style={{flex: 1, maxHeight: 50, borderColor: 'black', borderWidth: 1}}>
+            <View style={styles.componentContainer}>
                 <Picker
-                    style={[styles.text, {backgroundColor: WHITE}]}
+                    style={styles.text}
                     backgroundColor={WHITE}
                     selectedValue={selectedValue || 'default'}
                     onValueChange={onSelect}
@@ -35,7 +35,14 @@ class Select extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-
+    componentContainer: {
+        flex: 1,
+        maxHeight: 50,
+        backgroundColor: WHITE,
+        borderRadius: BORDER_RADIUS,
+        borderColor: 'black',
+        borderWidth: 1
+    }
 });
 
 export default Select;
