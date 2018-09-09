@@ -27,7 +27,6 @@ class HomeScreen extends React.Component {
 
     render() {
         const { navigate } = this.props.navigation;
-        const { fontsLoaded } = this.state;
         const { width } = Dimensions.get('window');
         const sectorsData = Database.Sectors;
 

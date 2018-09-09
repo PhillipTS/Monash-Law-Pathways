@@ -76,14 +76,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         paddingBottom: 50
     },
     buttonContainer: {
-        flex: 1,
-        /*  Failed attempt at shadow
-        shadowColor: 'black',
-        shadowOffset: {
-            width: 100,
-            height: 100
-        },
-        shadowOpacity: 0.5,*/
+        flex: 1
     }
 })
 
