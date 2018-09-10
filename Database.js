@@ -63,7 +63,7 @@ export default {
             name: 'Just Leadership Program',
             file: require('./assets/images/opportunities/just-leadership-program.png'),
             icon: null,
-            link: 'www.monashlss.com/single-post/2018/03/12/JUST-LEADERSHIP-PROGRAM',
+            link: 'https://www.monashlss.com/single-post/2018/03/12/JUST-LEADERSHIP-PROGRAM',
             dates: [
                 {
                     name: 'Applications Open',
@@ -84,7 +84,7 @@ export default {
             name: 'Study Abroad Exchange Program',
             file: require('./assets/images/opportunities/monash-abroad-student-exchange.png'),
             icon: require('./assets/images/opportunities/opp_plane_icon.png'),
-            link: 'www.monash.edu/study-abroad',
+            link: 'https://www.monash.edu/study-abroad',
             dates: [
                 {
                     name: 'Semester 1 Applications Close',
@@ -101,7 +101,7 @@ export default {
             name: 'Access Monash Mentoring Program',
             file: require('./assets/images/opportunities/access-monash-mentoring-program.png'),
             icon: require('./assets/images/opportunities/opp_monash_icon.png'),
-            link: 'www.monash.edu/access/mentoring/become_mentor',
+            link: 'https://www.monash.edu/access/mentoring/become_mentor',
             dates: [
                 {
                     name: 'Applications Close',
@@ -122,7 +122,7 @@ export default {
             name: 'Clinical Externships (LAW4803)',
             file: require('./assets/images/opportunities/clinical-externships.png'),
             icon: null,
-            link: 'www.monash.edu/__data/assets/pdf_file/0019/1383040/LAW4803-T2-2018-Clinical-Handbook-04_05_2018.pdf',
+            link: 'https://www.monash.edu/__data/assets/pdf_file/0019/1383040/LAW4803-T2-2018-Clinical-Handbook-04_05_2018.pdf',
             dates: null
         },
         {
@@ -245,7 +245,7 @@ export default {
             name: 'Professional Practice (LAW4328)',
             file: require('./assets/images/opportunities/professional-practice.png'),
             icon: require('./assets/images/opportunities/opp_hand_icon.png'),
-            link: 'http://www.monash.edu/pubs/2018handbooks/units/LAW4328.html',
+            link: 'https://www.monash.edu/pubs/2018handbooks/units/LAW4328.html',
             dates: [
                 {
                     name: 'Applications Close',
@@ -296,7 +296,7 @@ export default {
             name: 'Work Integrated Learning (LAW4810)',
             file: require('./assets/images/opportunities/wil.png'),
             icon: null,
-            link: 'http://www.monash.edu/pubs/2018handbooks/units/LAW4810.html',
+            link: 'https://www.monash.edu/pubs/2018handbooks/units/LAW4810.html',
             dates: null
         }
     ],

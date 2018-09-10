@@ -53,7 +53,7 @@ class StartScreen extends React.Component {
                                 actions: [NavigationActions.navigate({ routeName: 'Home' })],
                             })
                         )}
-                        label='     START     '
+                        label='START'
                     />
                 </View>
                 
@@ -76,7 +76,8 @@ const styles = StyleSheet.create({...GlobalStyles,
         paddingBottom: 50
     },
     buttonContainer: {
-        flex: 1
+        flex: 1,
+        minWidth: 150
     }
 })
 

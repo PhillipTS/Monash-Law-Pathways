@@ -3,10 +3,12 @@ import {
     View,
     Image,
     Modal,
+    Linking,
     ScrollView,
     StyleSheet,
     Dimensions
 } from 'react-native';
+import { WebBrowser } from 'expo';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 
@@ -28,9 +30,9 @@ class DetailPopup extends React.Component {
                 { data.link &&
                     <View style={styles.buttonContainer}>
                         <Button
-                            label='More Info'
-                            onPress={()=>{}}
-                            containerStyle={{margin: 0, borderRadius: 0}}
+                            label='MORE INFO'
+                            onPress={() => Linking.openURL(data.link)}
+                            containerStyle={{margin: 0, borderRadius: 0, borderBottomWidth: 0}}
                         />
                     </View>
                 }
