@@ -14,7 +14,7 @@ export default {
         padding: 10,
         borderColor: 'black',
         borderWidth: 2,
-        backgroundColor: SECONDARY_BACKGROUND,
+        backgroundColor: PRIMARY,
         borderRadius: BORDER_RADIUS
     },
     title: {

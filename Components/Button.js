@@ -9,10 +9,10 @@ import { SECONDARY, BORDER_RADIUS } from '../Constants';
 
 class Button extends React.Component {
     render() {
-        const { onPress, label } = this.props;
+        const { onPress, label, containerStyle } = this.props;
         return (
-            <TouchableOpacity style={styles.buttonContainer} onPress={onPress}>
-                <Text style={[styles.text, styles.buttonLabel]}>{label}</Text>
+            <TouchableOpacity style={[styles.buttonContainer, containerStyle]} onPress={onPress}>
+                <Text style={[styles.title, styles.buttonLabel]}>{label}</Text>
             </TouchableOpacity>
         )
     }

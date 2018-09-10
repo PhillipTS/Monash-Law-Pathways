@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import GlobalStyles from '../Styles';
 import Database from '../Database';
-import NavigationOptions from '../Components/HeaderBar';
+import NavigationOptions from '../Components/NavigationOptions';
 import Background from '../Components/Background';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
@@ -35,7 +35,7 @@ class HomeScreen extends React.Component {
 
                 <StatusBar/>
                 {this.renderPopup(sectorsData)}
-                <Background darkTheme/>
+                <Background/>
                 
                 <View style={{flex: 1}}>
                     <View style={[styles.innerContainer, {width: width - 60}]}>

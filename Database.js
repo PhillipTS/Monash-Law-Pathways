@@ -255,7 +255,7 @@ export default {
         },
         {
             id: 10,
-            name: 'Vic Legal Aid Aboriginal & Torres Strait Islander Opportunities',
+            name: 'VLA Aboriginal & Torres Strait Islander Opportunities',
             file: require('./assets/images/opportunities/vic-legal-aid.png'),
             icon: require('./assets/images/opportunities/opp_hand_icon.png'),
             link: 'https://jobs.careers.vic.gov.au/jobtools/jncustomsearch.viewFullSingle?in_organid=17342&in_jnCounter=222719643&in_jobDate=all',

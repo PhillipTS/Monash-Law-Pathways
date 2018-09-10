@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
-import { WHITE } from '../Constants';
 
 class DetailPopup extends React.Component {
     render() {
@@ -26,11 +25,21 @@ class DetailPopup extends React.Component {
                 <ScrollView>
                     <Image style={{width: width, height: 1000}} source={data.file}/>
                 </ScrollView>
+                { data.link &&
+                    <View style={styles.buttonContainer}>
+                        <Button
+                            label='More Info'
+                            onPress={()=>{}}
+                            containerStyle={{margin: 0, borderRadius: 0}}
+                        />
+                    </View>
+                }
                 { onButtonPress &&
-                    <View style={styles.linksContainer}>
+                    <View style={styles.buttonContainer}>
                         <Button
                             label={buttonLabel}
                             onPress={onButtonPress}
+                            containerStyle={{margin: 0, borderRadius: 0}}
                         />
                     </View>
                 }
@@ -40,8 +49,7 @@ class DetailPopup extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-    linksContainer: {
-        backgroundColor: WHITE,
+    buttonContainer: {
         borderColor: 'black',
         borderWidth: 4,
         height: 50

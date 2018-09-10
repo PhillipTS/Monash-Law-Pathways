@@ -43,7 +43,7 @@ class Select extends React.Component {
                                 <Text style={[styles.title, {fontSize: 32, marginBottom: 20}]}>{placeholder}</Text>
                                 {
                                     data.map( ({ label, value }) =>
-                                        <TouchableOpacity key={value} style={styles.item} onPress={() => onSelect(value)}>
+                                        <TouchableOpacity key={value} style={styles.item} onPress={() => {this.setState({popupOpen: false}); onSelect(value)}}>
                                             <Text style={styles.text}>{label}</Text>
                                         </TouchableOpacity>
                                     )

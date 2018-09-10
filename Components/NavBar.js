@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    View,
     Image,
     TouchableOpacity
 } from 'react-native';
@@ -8,13 +7,10 @@ import {
 class NavBar extends React.Component {
     render() {
         const { goToHome } = this.props;
+
         return (
-            <TouchableOpacity
-                style={{flex: 1, alignItems: 'center'}}
-                onPress={goToHome}
-            >
-                <Image source={require('../assets/images/banner_blue_background.png')}/>
-                <View/>
+            <TouchableOpacity style={{flex: 1, alignItems: 'center'}} onPress={goToHome}>
+                <Image style={{flex: 1, resizeMode: 'contain'}} source={require('../assets/images/banner_blue.png')}/>
             </TouchableOpacity>
         )
     }

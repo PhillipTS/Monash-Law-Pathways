@@ -7,13 +7,13 @@ import {
 } from 'react-native';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
-import NavigationOptions from '../Components/HeaderBar';
+import NavigationOptions from '../Components/NavigationOptions';
 import Background from '../Components/Background';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
-import { WHITE, SECONDARY_BACKGROUND, BORDER_RADIUS } from '../Constants';
+import { WHITE, SECONDARY_BACKGROUND, BORDER_RADIUS, PRIMARY } from '../Constants';
 
 const getData = (dataType, value) => {
     switch(dataType) {
@@ -60,7 +60,7 @@ class ListScreen extends React.Component {
         let headerComponent;
         switch (headerType) {
             case 'title':
-                headerComponent = <Text style={[styles.title, {fontSize: 18}]}>{titleValue}</Text>
+                headerComponent = <Text style={[styles.title, {fontSize: 18, color: WHITE}]}>{titleValue}</Text>
                 break;
             case 'select':
                 headerComponent = 
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         borderColor: 'black',
         borderRadius: BORDER_RADIUS,
         borderWidth: 2,
-        backgroundColor: WHITE
+        backgroundColor: PRIMARY
     },
     noDataLabel: {
         top: 100,

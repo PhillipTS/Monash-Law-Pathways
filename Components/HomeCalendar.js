@@ -4,7 +4,7 @@ import {
     StyleSheet
 } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import { SECONDARY_BACKGROUND, BORDER_RADIUS } from '../Constants';
+import { SECONDARY_BACKGROUND, BORDER_RADIUS, WHITE } from '../Constants';
 import GlobalStyles from '../Styles';
 
 class HomeCalendar extends React.Component {
@@ -22,7 +22,9 @@ class HomeCalendar extends React.Component {
                         '2018-09-26': {marked: true}
                     }}
                     theme={{
-                        arrowColor: 'black'
+                        arrowColor: 'black',
+                        backgroundColor: WHITE,
+                        calendarBackground: WHITE
                     }}
                 />
             </View>
@@ -33,6 +35,7 @@ class HomeCalendar extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     calendarContainer: {
         flex: 1,
+        padding: 1,
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
         borderWidth: 2

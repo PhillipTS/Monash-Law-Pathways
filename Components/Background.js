@@ -7,19 +7,15 @@ import {
 } from 'react-native';
 import GlobalStyles from '../Styles';
 
-const light = require('../assets/images/background_light.png');
-const dark = require('../assets/images/background_dark.png');
-
 class Background extends React.Component {
     render() {
         const { height } = Dimensions.get('window');
-        const { darkTheme } = this.props
 
         return (
             <View style={styles.backgrounContainer}>
                 <Image
                     style={[styles.image, {height: height}]}
-                    source={darkTheme ? dark : light}
+                    source={require('../assets/images/background_space.png')}
                 />
             </View>
         )

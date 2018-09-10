@@ -9,7 +9,7 @@ export const SECONDARY = '#DFEAF3';     // Azureish White
 
 export const BACKGROUND = '#A4C3D6';       // Pastel Blue
 
-export const SECONDARY_BACKGROUND = '#ABD5D0';   // Pastel Blue
+export const SECONDARY_BACKGROUND = '#ABD5D0';   // Minty Green
 
 export const WHITE = '#FFF';   // White
 
