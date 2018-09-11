@@ -8,13 +8,12 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
-import { WebBrowser } from 'expo';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 
 class DetailPopup extends React.Component {
     render() {
-        const { popupOpen, buttonLabel, onRequestClose, onButtonPress, data } = this.props;
+        const { popupOpen, buttonLabel, onRequestClose, onButtonPress, data, buttonDisabled } = this.props;
         const { width } = Dimensions.get('window');
         
         return (
@@ -42,6 +41,7 @@ class DetailPopup extends React.Component {
                             label={buttonLabel}
                             onPress={onButtonPress}
                             containerStyle={{margin: 0, borderRadius: 0}}
+                            disabled={buttonDisabled}
                         />
                     </View>
                 }

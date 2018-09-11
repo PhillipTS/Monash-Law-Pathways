@@ -1,9 +1,11 @@
 import React from 'react';
+import { NavigationActions, StackActions } from 'react-navigation';
 import {
     View,
     Text,
     ScrollView,
-    StyleSheet
+    StyleSheet,
+    Alert
 } from 'react-native';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
@@ -14,6 +16,7 @@ import Select from '../Components/Select';
 import DetailCard from '../Components/DetailCard';
 import DetailPopup from '../Components/DetailPopup';
 import { WHITE, SECONDARY_BACKGROUND, BORDER_RADIUS, PRIMARY } from '../Constants';
+import { addOpportunity } from '../LocalStorage';
 
 const getData = (dataType, value) => {
     switch(dataType) {
@@ -40,10 +43,32 @@ class ListScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            interestedOpportunities: [],
+
             popupOpen: false,
             popupIndex: 0
         };
     }
+
+    //componentDidMount() {
+    //    getOpportunities().then(opps => this.setState({ interestedOpportunities: opps }));
+    //}
+
+    markInterested = (opportunity) =>
+        addOpportunity(opportunity.id).then(() =>
+            Alert.alert('Success', 'Now interested in\n' + opportunity.name,
+            [
+                {text: 'Back to Home', onPress: () =>
+                    this.props.navigation.dispatch(
+                        StackActions.reset({
+                            index: 0,
+                            actions: [NavigationActions.navigate({ routeName: 'Home' })]
+                        })
+                    )
+                },
+                {text: 'Close'}
+            ])
+        ).catch(() => Alert.alert('Error', 'An error occoured'));
 
     render() {
         const { getParam, push } = this.props.navigation;
@@ -126,12 +151,13 @@ class ListScreen extends React.Component {
     }
 
     renderPopup = (dataType, data) => {
-        const { popupOpen, popupIndex } = this.state;
+        const { popupOpen, popupIndex, interestedOpportunities } = this.state;
         const { push } = this.props.navigation;
          return (
             <DetailPopup
                 popupOpen={popupOpen}
                 buttonLabel={dataType === 'Sectors' ? 'GRAD PROFILES' : dataType === 'GradProfiles' ? 'OPPORTUNITIES' : 'INTERESTED'}
+                buttonDisabled={interestedOpportunities.includes(data[popupIndex].id)}
                 onRequestClose={() => this.setState({ popupOpen: false })}
                 onButtonPress={
                     dataType === 'Sectors' ? () => {
@@ -152,7 +178,7 @@ class ListScreen extends React.Component {
                             dataType: 'Opportunities'
                         })
                     }
-                    : () => console.log('Interested')
+                    : () => this.markInterested(data[popupIndex])
                 }
                 data={data[popupIndex]}
             />

@@ -22,6 +22,8 @@ export const TEXT_FONT = 'open-sans';
 // Other
 export const BORDER_RADIUS = 5; // Amount of curve on corners
 
+export const INTERESTED_OPPS_KEY = 'interested-opportunities'; // Key for persistent storage
+
 
 export default {
     APP_NAME,
@@ -32,5 +34,6 @@ export default {
     WHITE,
     TITLE_FONT,
     TEXT_FONT,
-    BORDER_RADIUS
+    BORDER_RADIUS,
+    INTERESTED_OPPS_KEY
 };

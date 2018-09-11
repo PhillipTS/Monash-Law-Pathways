@@ -13,6 +13,7 @@ import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import HomeCalendar from '../Components/HomeCalendar';
 import DetailPopup from '../Components/DetailPopup';
+import { getOpportunities, setOpportunity } from '../LocalStorage';
 
 class HomeScreen extends React.Component {
     static navigationOptions = NavigationOptions;
@@ -20,15 +21,26 @@ class HomeScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            interestedOpps: [],
+
             popupOpen: false,
             popupIndex: 0
         };
     }
 
+    componentDidMount() {
+        //setOpportunity(0);
+        getOpportunities().then(oppIDs => this.setState({ interestedOpps: oppIDs.map(id => Database.Opportunities[id]) }));
+    }
+
     render() {
         const { navigate } = this.props.navigation;
+        const { interestedOpps } = this.state;
         const { width } = Dimensions.get('window');
+
         const sectorsData = Database.Sectors;
+        let dates = [];
+        interestedOpps.forEach(opp => dates = [...dates, ...opp.dates]);
 
         return (
             <View style={styles.container}>
@@ -57,7 +69,7 @@ class HomeScreen extends React.Component {
                             />
                         </View>
                         <View style={styles.calendarContainer}>
-                            <HomeCalendar/>
+                            <HomeCalendar data={dates}/>
                         </View>
                     </View>
                 </View>
