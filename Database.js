@@ -303,8 +303,8 @@ export default {
             id: 13,
             name: 'ACICIS Indonesian Semester',
             file: require('./assets/images/opportunities/acicis-indonesian-semester.png'),
-            icon: null,
-            link: null,
+            icon: require('./assets/images/opportunities/opp_plane_icon.png'),
+            link: 'https://www.monash.edu/study-abroad/outbound/internships/indonesia-program',
             dates: [
                 {
                     name: 'Applications Close',
@@ -316,8 +316,8 @@ export default {
             id: 14,
             name: 'Social Justice and Equity Seminars',
             file: require('./assets/images/opportunities/social-justice.png'),
-            icon: null,
-            link: null,
+            icon: require('./assets/images/opportunities/opp_megaphone_icon.png'),
+            link: 'https://www.monashlss.com/single-post/2017/07/13/SEMINARS-LECTURES-AND-EVENTS',
             dates: null
         },
         {

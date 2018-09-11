@@ -3,6 +3,7 @@ import {
     View,
     StatusBar,
     StyleSheet,
+    Linking,
     Dimensions
 } from 'react-native';
 import GlobalStyles from '../Styles';
@@ -13,7 +14,9 @@ import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import HomeCalendar from '../Components/HomeCalendar';
 import DetailPopup from '../Components/DetailPopup';
+import Button from '../Components/Button';
 import { getOpportunities, setOpportunity } from '../LocalStorage';
+import { FEEDBACK_FORM } from '../Constants';
 
 class HomeScreen extends React.Component {
     static navigationOptions = NavigationOptions;
@@ -50,7 +53,7 @@ class HomeScreen extends React.Component {
                 <Background/>
                 
                 <View style={{flex: 1}}>
-                    <View style={[styles.innerContainer, {width: width - 60}]}>
+                    <View style={[styles.innerContainer, {width: width - 60, padding: 5}]}>
                         <View style={styles.searchContainer}>
                             <OpportunitySearch
                                 onSelect={searchTerm => navigate('List', {
@@ -70,6 +73,14 @@ class HomeScreen extends React.Component {
                         </View>
                         <View style={styles.calendarContainer}>
                             <HomeCalendar data={dates}/>
+                        </View>
+                        <View style={styles.buttonContainer}>
+                            <Button
+                                containerStyle={{padding: 0, margin: 0}}
+                                labelStyle={{fontSize: 12, margin: 1, padding: 1}}
+                                label='Leave Feedback'
+                                onPress={() => Linking.openURL(FEEDBACK_FORM)}
+                            />
                         </View>
                     </View>
                 </View>
@@ -106,15 +117,22 @@ class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({...GlobalStyles,
     searchContainer: {
-        flex: 1,
-        marginBottom: 10
+        flex: 2,
+        marginBottom: 5
     },
     selectContainer: {
-        flex: 1
+        flex: 2,
+        marginBottom: 5
     },
     calendarContainer: {
-        flex: 4,
-        padding: 10
+        flex: 13,
+        padding: 3,
+        paddingBottom: 2
+    },
+    buttonContainer: {
+        flex: 1,
+        alignSelf: 'center',
+        maxWidth: 150
     }
   });
 
