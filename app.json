@@ -9,14 +9,14 @@
       "resiseMode": "contain"
     },
 		"description": "Hub to discover Law Opportunities for Students. Explore what's out there!",
-		"version": "0.2.0",
+		"version": "1.0.0",
 		"orientation": "portrait",
 		"ios": {
 			"bundleIdentifier": "com.pathwaysToSuccess.exploreTheLaw"
 		},
 		"android": {
       "package": "com.pathwaysToSuccess.exploreTheLaw",
-      "versionCode": 2,
+      "versionCode": 3,
       "permissions": []
 		}
   }
