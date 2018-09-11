@@ -85,7 +85,7 @@ class ListScreen extends React.Component {
         let headerComponent;
         switch (headerType) {
             case 'title':
-                headerComponent = <Text style={[styles.title, {fontSize: 18, color: WHITE}]}>{titleValue}</Text>
+                headerComponent = <Text style={[styles.title, {fontSize: 22, color: WHITE}]}>{titleValue.toUpperCase()}</Text>
                 break;
             case 'select':
                 headerComponent = 

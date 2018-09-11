@@ -25,7 +25,7 @@ const styles = StyleSheet.create({...GlobalStyles,
     buttonContainer: {
         flex: 1,
         margin: 1,
-        padding: 5,
+        padding: 1,
         maxHeight: 50,
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',

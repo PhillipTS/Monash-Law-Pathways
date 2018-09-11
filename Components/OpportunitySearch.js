@@ -24,10 +24,12 @@ class OpportunitySearch extends React.Component {
                     placeholder={placeholder}
                     onChangeText={(searchTerm) => this.setState({ searchTerm })}
                 />
-                <Button
-                    onPress={() => onSelect(searchTerm)}
-                    label='SEARCH'
-                />
+                <View style={{flex: 1, alignSelf: 'center'}}>
+                    <Button
+                        onPress={() => onSelect(searchTerm)}
+                        label='SEARCH'
+                    />
+                </View>
             </View>
         )
     }
@@ -38,6 +40,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         flex: 1,
         flexDirection: 'row',
         padding: 1,
+        maxHeight: 60,
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
         borderWidth: 1,

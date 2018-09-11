@@ -10,9 +10,9 @@ export default {
         },
         {
             id: 1,
-            name: 'Shane Khong',
+            name: 'John Smith',
             description: 'Transfer Pricing Consultant - BDO',
-            file: require('./assets/images/gradProfiles/shane-khong.png'),
+            file: require('./assets/images/gradProfiles/john-smith.png'),
             icon: require('./assets/images/gradProfiles/grad_icon.png'),
             sector: 4
         },
@@ -297,6 +297,35 @@ export default {
             file: require('./assets/images/opportunities/wil.png'),
             icon: null,
             link: 'https://www.monash.edu/pubs/2018handbooks/units/LAW4810.html',
+            dates: null
+        },
+        {
+            id: 13,
+            name: 'ACICIS Indonesian Semester',
+            file: require('./assets/images/opportunities/acicis-indonesian-semester.png'),
+            icon: null,
+            link: null,
+            dates: [
+                {
+                    name: 'Applications Close',
+                    date: new Date('2019-04-15')
+                }
+            ]
+        },
+        {
+            id: 14,
+            name: 'Social Justice and Equity Seminars',
+            file: require('./assets/images/opportunities/social-justice.png'),
+            icon: null,
+            link: null,
+            dates: null
+        },
+        {
+            id: 15,
+            name: 'LSS Barrister Shadowing',
+            file: require('./assets/images/opportunities/lss-barrister-shadowing.png'),
+            icon: null,
+            link: 'https://www.facebook.com/groups/1575086142808100/',
             dates: null
         }
     ],

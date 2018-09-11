@@ -29,7 +29,7 @@ class HomeScreen extends React.Component {
     }
 
     componentDidMount() {
-        //setOpportunity(0);
+        //setOpportunity(null);
         getOpportunities().then(oppIDs => this.setState({ interestedOpps: oppIDs.map(id => Database.Opportunities[id]) }));
     }
 
@@ -110,12 +110,10 @@ const styles = StyleSheet.create({...GlobalStyles,
         marginBottom: 10
     },
     selectContainer: {
-        flex: 1,
-        marginTop: 10,
-        marginBottom: 25
+        flex: 1
     },
     calendarContainer: {
-        flex: 6,
+        flex: 4,
         padding: 10
     }
   });

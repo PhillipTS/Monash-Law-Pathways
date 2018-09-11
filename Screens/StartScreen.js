@@ -73,7 +73,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         color: WHITE,
         fontSize: 16,
         fontStyle: 'italic',
-        paddingBottom: 50
+        paddingBottom: 60
     },
     buttonContainer: {
         flex: 1,
