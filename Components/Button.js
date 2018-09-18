@@ -12,8 +12,9 @@ class Button extends React.Component {
         const { onPress, label, containerStyle, labelStyle, disabled } = this.props;
         return (
             <TouchableOpacity
-                style={[styles.buttonContainer, containerStyle]}
-                onPress={onPress}
+                style={[styles.buttonContainer, disabled ? {backgroundColor: 'grey'} : null, containerStyle]}
+                onPress={disabled ? () => {} : onPress}
+                activeOpacity={disabled ? 1 : 0.2}
             >
                 <Text style={[styles.title, styles.buttonLabel, labelStyle]}>{label}</Text>
             </TouchableOpacity>
