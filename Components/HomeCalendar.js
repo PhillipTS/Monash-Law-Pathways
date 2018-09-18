@@ -12,7 +12,7 @@ const toISO = date => date.toISOString().substr(0, 10);
 
 class HomeCalendar extends React.Component {
     render() {
-        const { data } = this.props;
+        const { data, onPress } = this.props;
         const today = new Date();
 
         return (
@@ -20,12 +20,7 @@ class HomeCalendar extends React.Component {
                 <Calendar
                     style={{flex: 1}}
                     minDate={today}
-                    onDayPress={day => console.log('Selected Day: ', day)}
-                    //dayComponent={({date, state}) =>
-                    //    <View style={{flex: 1}}>
-                    //        <Text style={{textAlign: 'center', color: state === 'disabled' ? 'grey' : PRIMARY}}>{date.day}</Text>
-                    //    </View>
-                    //}
+                    onDayPress={onPress}
                     markedDates={{
                         //[toISO(today)]: {selected: true, selectedColor: SECONDARY_BACKGROUND},
                         ...Object.assign({}, ...(data && data.map(date => {return {[toISO(date.date)]: {marked: true}}})))
