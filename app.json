@@ -16,7 +16,7 @@
 		},
 		"android": {
       "package": "com.pathwaysToSuccess.exploreTheLaw",
-      "versionCode": 3,
+      "versionCode": 4,
       "permissions": []
 		}
   }
