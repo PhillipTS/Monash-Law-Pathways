@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationEvents } from 'react-navigation';
 import {
     View,
     Text,
@@ -38,11 +39,6 @@ class HomeScreen extends React.Component {
         };
     }
 
-    componentDidMount() {
-        //setOpportunity(null);
-        getOpportunities().then(oppIDs => this.setState({ interestedOpps: oppIDs.map(id => Database.Opportunities[id]) }));
-    }
-
     handleDayClick = (day) => {
         const isoDate = day.dateString;
         let opportunity = null;
@@ -73,6 +69,9 @@ class HomeScreen extends React.Component {
         return (
             <View style={styles.container}>
 
+                <NavigationEvents
+                    onWillFocus={() => getOpportunities().then(oppIDs => this.setState({ interestedOpps: oppIDs.map(id => Database.Opportunities[id]) }))}
+                />
                 <StatusBar/>
                 {this.renderSectorsPopup(sectorsData)}
                 {this.renderOpportunityPopup(opportunity)}

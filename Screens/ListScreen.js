@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationEvents } from 'react-navigation';
 import {
     View,
     Text,
@@ -47,10 +48,6 @@ class ListScreen extends React.Component {
             popupOpen: false,
             popupIndex: 0
         };
-    }
-
-    componentDidMount() {
-        getInterestedOpportunities().then(opps => this.setState({ interestedOpportunities: opps }));
     }
 
     markInterested = (opportunity) =>
@@ -117,6 +114,9 @@ class ListScreen extends React.Component {
                     this.renderPopup(dataType, data)
                 }
                 <Background/>
+                <NavigationEvents
+                    onWillFocus={() => getInterestedOpportunities().then(opps => this.setState({ interestedOpportunities: opps }))}
+                />
 
                 <View style={styles.headerContainer}>{headerComponent}</View>
 
