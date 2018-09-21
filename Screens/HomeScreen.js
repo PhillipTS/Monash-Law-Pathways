@@ -5,6 +5,7 @@ import {
     Text,
     Modal,
     ScrollView,
+    TouchableOpacity,
     StatusBar,
     StyleSheet,
     Linking,
@@ -12,7 +13,6 @@ import {
 } from 'react-native';
 import GlobalStyles from '../Styles';
 import Database from '../Database';
-import NavigationOptions from '../Components/NavigationOptions';
 import Background from '../Components/Background';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
@@ -25,7 +25,6 @@ import { FEEDBACK_FORM, WHITE } from '../Constants';
 const toISO = date => date.toISOString().substr(0, 10);
 
 class HomeScreen extends React.Component {
-    static navigationOptions = NavigationOptions;
 
     constructor(props) {
         super(props);
@@ -154,24 +153,26 @@ class HomeScreen extends React.Component {
                 visible={oppsPopupOpen}
                 onRequestClose={() => this.setState({ oppsPopupOpen: false })}
             >
-                <View style={styles.opportunityPopupContainer}>
-                    <Text style={[styles.title, styles.opportunityTitle]}>{name}</Text>
-                        <ScrollView style={styles.datesContainer}>
-                        {
-                            dates.map(date =>
-                                <View key={date.name} style={styles.dateContainer}>
-                                    <Text style={styles.text}>{date.name}</Text>
-                                    <Text style={styles.text}>{date.date.toDateString()}</Text>
-                                </View>
-                            )
-                        }
-                        </ScrollView>
-                        <Button
-                            style={{flex: 1}}
-                            onPress={() => this.setState({ oppsPopupOpen: false })}
-                            label='Close'
-                        />
-                </View>
+                <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ oppsPopupOpen: false })} >
+                    <TouchableOpacity style={styles.opportunityPopupContainer} activeOpacity={1} onPress={() => {}} >
+                        <Text style={[styles.title, styles.opportunityTitle]}>{name}</Text>
+                            <ScrollView style={styles.datesContainer}>
+                            {
+                                dates.map(date =>
+                                    <View key={date.name} style={styles.dateContainer}>
+                                        <Text style={styles.text}>{date.name}</Text>
+                                        <Text style={styles.text}>{date.date.toDateString()}</Text>
+                                    </View>
+                                )
+                            }
+                            </ScrollView>
+                            <Button
+                                style={{flex: 1}}
+                                onPress={() => this.setState({ oppsPopupOpen: false })}
+                                label='Close'
+                            />
+                    </TouchableOpacity>
+                </TouchableOpacity>
             </Modal>
         )
     }

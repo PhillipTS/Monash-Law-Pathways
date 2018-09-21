@@ -1,11 +1,10 @@
 import React from 'react';
 import {
     View,
-    Text,
     StyleSheet
 } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import { SECONDARY_BACKGROUND, BORDER_RADIUS, WHITE, TITLE_FONT, PRIMARY } from '../Constants';
+import { BORDER_RADIUS, WHITE, TITLE_FONT, PRIMARY } from '../Constants';
 import GlobalStyles from '../Styles';
 
 const toISO = date => date.toISOString().substr(0, 10);

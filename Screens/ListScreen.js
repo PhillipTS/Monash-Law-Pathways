@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
-import NavigationOptions from '../Components/NavigationOptions';
 import Background from '../Components/Background';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
@@ -38,7 +37,6 @@ const getGradProfiles = (sectorID) => Database.GradProfiles.filter(profile => pr
 const getOpportunities = (searchTerm) => Database.Opportunities.filter(({ name }) => name.toUpperCase().includes(searchTerm.toUpperCase()));
 
 class ListScreen extends React.Component {
-    static navigationOptions = NavigationOptions;
 
     constructor(props) {
         super(props);
@@ -109,14 +107,10 @@ class ListScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                {
-                    data.length !== 0 &&
-                    this.renderPopup(dataType, data)
-                }
+
+                { data.length !== 0 && this.renderPopup(dataType, data) }
                 <Background/>
-                <NavigationEvents
-                    onWillFocus={() => getInterestedOpportunities().then(opps => this.setState({ interestedOpportunities: opps }))}
-                />
+                <NavigationEvents onWillFocus={() => getInterestedOpportunities().then(opps => this.setState({ interestedOpportunities: opps }))} />
 
                 <View style={styles.headerContainer}>{headerComponent}</View>
 

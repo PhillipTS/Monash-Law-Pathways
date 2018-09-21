@@ -24,7 +24,7 @@ class DetailPopup extends React.Component {
                 onRequestClose={onRequestClose}
             >
                 <ScrollView>
-                    <Image style={{width: width, height: 1000}} source={data.file}/>
+                    <Image style={{width, height: 1000}} source={data.file}/>
                 </ScrollView>
                 { data.link &&
                     <View style={styles.buttonContainer}>
