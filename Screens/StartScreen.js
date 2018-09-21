@@ -47,13 +47,13 @@ class StartScreen extends React.Component {
 
                 <View style={styles.buttonContainer}>
                     <Button
+                        label='START'
                         onPress={() => dispatch(
                             StackActions.reset({
                                 index: 0,
                                 actions: [NavigationActions.navigate({ routeName: 'Home' })],
                             })
                         )}
-                        label='START'
                     />
                 </View>
                 
@@ -65,19 +65,24 @@ class StartScreen extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     box: {
         flex: 1,
-        backgroundColor: PRIMARY,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: PRIMARY,
+        padding: 10,
+        paddingTop: 30
     },
     subTitle: {
+        flex: 1,
         color: WHITE,
         fontSize: 16,
         fontStyle: 'italic',
-        paddingBottom: 60
+        textAlign: 'center',
+        textAlignVertical: 'center'
     },
     buttonContainer: {
         flex: 1,
-        minWidth: 150
+        minWidth: 150,
+        justifyContent: 'center'
     }
 })
 

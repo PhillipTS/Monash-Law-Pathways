@@ -26,7 +26,7 @@ export const BORDER_RADIUS = 5; // Amount of curve on corners
 
 export const INTERESTED_OPPS_KEY = 'interested-opportunities'; // Key for persistent storage
 
-export const FEEDBACK_FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSf99TOsxgGFD8dj4tUqYbZ7nsGoko6Tky45DSxiT93vUnzIIw/viewform'; // Feedback Google Form
+export const FEEDBACK_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSf99TOsxgGFD8dj4tUqYbZ7nsGoko6Tky45DSxiT93vUnzIIw/viewform'; // Feedback Google Form
 
 
 export default {
@@ -40,5 +40,5 @@ export default {
     TEXT_FONT,
     BORDER_RADIUS,
     INTERESTED_OPPS_KEY,
-    FEEDBACK_FORM
+    FEEDBACK_FORM_URL
 };

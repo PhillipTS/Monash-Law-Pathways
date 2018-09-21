@@ -8,42 +8,39 @@ import {
     ScrollView,
     StyleSheet
 } from 'react-native';
+import DetailPopup from '../Components/DetailPopup';
 import GlobalStyles from '../Styles';
 import { WHITE, BORDER_RADIUS } from '../Constants';
 
 class Select extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { popupOpen: false };
+        this.state = {
+            listPopupOpen: false,
+            detailPopupOpen: false,
+            selectedValueIndex: 0
+        };
     }
 
     render() {
-        const { placeholder, selectedValue, data, onSelect, dropdown } = this.props;
-        const { popupOpen } = this.state;
+        const { placeholder, selectedValue, data, navigate } = this.props;
+        const { listPopupOpen, detailPopupOpen, selectedValueIndex } = this.state;
+
+        const selectValues = data.map(({id, name}) => {return {label: name, value: id}});
 
         return (
             <View style={{flex: 1}}>
 
-                <Modal
-                    visible={popupOpen}
-                    transparent
-                    onRequestClose={() => this.setState({ popupOpen: false })}
-                >
-                    <TouchableOpacity
-                        style={styles.popupContainer}
-                        activeOpacity={1}
-                        onPress={() => this.setState({ popupOpen: false })}
-                    >
-                        <TouchableOpacity activeOpacity={1} onPress={() => {}}>
-                            <ScrollView
-                                style={styles.popup}
-                                borderColor='black'
-                                borderWidth={2}
-                            >
+                <Modal visible={listPopupOpen} transparent onRequestClose={() => this.setState({ listPopupOpen: false })}>
+                    <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ listPopupOpen: false })}>
+                        <TouchableOpacity style={styles.popup} activeOpacity={1} onPress={() => {}}>
+                            <ScrollView contentContainerStyle={{alignItems: 'center'}}>
                                 <Text style={[styles.title, {fontSize: 32, marginBottom: 20}]}>{placeholder}</Text>
                                 {
-                                    data.map( ({ label, value }) =>
-                                        <TouchableOpacity key={value} style={styles.item} onPress={() => {this.setState({popupOpen: false}); onSelect(value)}}>
+                                    selectValues.map( ({ label, value }) =>
+                                        <TouchableOpacity key={value} style={styles.item} onPress={() =>
+                                            this.setState({detailPopupOpen: true, selectedValueIndex: value})
+                                        }>
                                             <Text style={styles.text}>{label}</Text>
                                         </TouchableOpacity>
                                     )
@@ -53,7 +50,24 @@ class Select extends React.Component {
                     </TouchableOpacity>
                 </Modal>
 
-                <TouchableOpacity style={styles.componentContainer} onPress={() => this.setState({ popupOpen: true })}>
+                <DetailPopup
+                    popupOpen={detailPopupOpen}
+                    buttonLabel='GRAD PROFILES'
+                    onRequestClose={() => this.setState({ detailPopupOpen: false })}
+                    onButtonPress={ () => {
+                        this.setState({ detailPopupOpen: false, listPopupOpen: false });
+                        navigate('List', {
+                            headerType: 'title',
+                            titleValue: data[selectedValueIndex].name,
+                            referingValue: data[selectedValueIndex].id,
+                            otherValues: selectValues,
+                            dataType: 'GradProfiles'
+                        })
+                    }}
+                    data={data[selectedValueIndex]}
+                />
+
+                <TouchableOpacity style={styles.componentContainer} onPress={() => this.setState({ listPopupOpen: true })}>
                     <Text style={[styles.text, {flex: 9, textAlignVertical: 'center'}]}>{selectedValue || placeholder}</Text>
                     <Image style={{flex: 1}} source={require('../assets/images/dropdown_arrow.png')}/>
                 </TouchableOpacity>
@@ -75,21 +89,6 @@ const styles = StyleSheet.create({...GlobalStyles,
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
         borderWidth: 1
-    },
-    popupContainer: {
-        flex: 1,
-        zIndex: 5,
-        alignItems: 'center'
-    },
-    popup: {
-        flex: 1,
-        zIndex: 10,
-        margin: 20,
-        paddingLeft: 30,
-        paddingRight: 30,
-        backgroundColor: WHITE,
-        shadowColor: 'black',
-        shadowRadius: 1
     },
     item: {
         padding: 5

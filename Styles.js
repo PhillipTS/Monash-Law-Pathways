@@ -1,4 +1,4 @@
-import { PRIMARY, BACKGROUND, SECONDARY_BACKGROUND, BORDER_RADIUS, TITLE_FONT, TEXT_FONT } from './Constants';
+import { PRIMARY, BACKGROUND, WHITE, BORDER_RADIUS, TITLE_FONT, TEXT_FONT } from './Constants';
 
 export default {
     container: {
@@ -16,6 +16,14 @@ export default {
         borderWidth: 2,
         backgroundColor: PRIMARY,
         borderRadius: BORDER_RADIUS
+    },
+    popup: {
+        flex: 1,
+        backgroundColor: WHITE,
+        margin: 40,
+        padding: 10,
+        borderColor: 'black',
+        borderWidth: 2
     },
     title: {
         margin: 5,

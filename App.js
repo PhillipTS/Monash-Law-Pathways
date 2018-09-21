@@ -15,10 +15,10 @@ const App = createStackNavigator(
   {
     navigationOptions: ({ navigation }) => {
       return {
-          headerTitle: <NavBar goToHome={() => navigation.popToTop()}/>,
-          headerStyle: {
-              backgroundColor: BACKGROUND
-          }
+        headerTitle: <NavBar goToHome={() => navigation.popToTop()}/>,
+        headerStyle: {
+            backgroundColor: BACKGROUND
+        }
       }
   }
   }

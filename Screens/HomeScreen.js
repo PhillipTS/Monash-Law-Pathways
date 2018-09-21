@@ -3,8 +3,8 @@ import { NavigationEvents } from 'react-navigation';
 import {
     View,
     Text,
+    Image,
     Modal,
-    ScrollView,
     TouchableOpacity,
     StatusBar,
     StyleSheet,
@@ -17,12 +17,9 @@ import Background from '../Components/Background';
 import OpportunitySearch from '../Components/OpportunitySearch';
 import Select from '../Components/Select';
 import HomeCalendar from '../Components/HomeCalendar';
-import DetailPopup from '../Components/DetailPopup';
 import Button from '../Components/Button';
 import { getOpportunities, setOpportunity } from '../LocalStorage';
-import { FEEDBACK_FORM, WHITE } from '../Constants';
-
-const toISO = date => date.toISOString().substr(0, 10);
+import { FEEDBACK_FORM_URL } from '../Constants';
 
 class HomeScreen extends React.Component {
 
@@ -31,33 +28,13 @@ class HomeScreen extends React.Component {
         this.state = {
             interestedOpps: [],
 
-            oppsPopupOpen: false,
-            sectorsPopupOpen: false,
-            opportunity: null,
-            sectorsPopupIndex: 0
+            helpPopup: false
         };
-    }
-
-    handleDayClick = (day) => {
-        const isoDate = day.dateString;
-        let opportunity = null;
-        
-        Database.Opportunities.forEach(opp =>
-            opp.dates ? opp.dates.forEach(date => {
-                if (toISO(date.date) === isoDate) {
-                    opportunity = opp;
-                }
-            }) : null
-        );
-        
-        if (opportunity) {
-            this.setState({ opportunity, oppsPopupOpen: true });
-        }
     }
 
     render() {
         const { navigate } = this.props.navigation;
-        const { interestedOpps, opportunity } = this.state;
+        const { interestedOpps, helpPopup } = this.state;
         const { width } = Dimensions.get('window');
 
         const sectorsData = Database.Sectors;
@@ -69,12 +46,18 @@ class HomeScreen extends React.Component {
             <View style={styles.container}>
 
                 <NavigationEvents
-                    onWillFocus={() => getOpportunities().then(oppIDs => this.setState({ interestedOpps: oppIDs.map(id => Database.Opportunities[id]) }))}
+                    onWillFocus={() => getOpportunities().then(oppIDs => this.setState({ interestedOpps: oppIDs.map(id => Database.Opportunities[id])}))}
                 />
                 <StatusBar/>
-                {this.renderSectorsPopup(sectorsData)}
-                {this.renderOpportunityPopup(opportunity)}
                 <Background/>
+
+                <Modal visible={helpPopup} transparent onRequestClose={() => this.setState({ helpPopup: false })}>
+                    <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ helpPopup: false })}>
+                        <TouchableOpacity style={styles.popup} activeOpacity={1} onPress={() => {}}>
+                            <Text style={[styles.title, {fontSize: 32}]}>How to use this App</Text>
+                        </TouchableOpacity>
+                    </TouchableOpacity>
+                </Modal>
                 
                 <View style={{flex: 1}}>
                     <View style={[styles.innerContainer, {width: width - 60, padding: 5}]}>
@@ -89,91 +72,27 @@ class HomeScreen extends React.Component {
                             />
                         </View>
                         <View style={styles.selectContainer}>
-                            <Select
-                                data={sectorsData.map(({id, name}) => {return {value: id, label: name}})}
-                                onSelect={sectorID => this.setState({ sectorsPopupIndex: sectorID, sectorsPopupOpen: true })}
-                                placeholder='Select a Sector'
-                            />
+                            <Select data={sectorsData} placeholder='Select a Sector' navigate={navigate} />
                         </View>
                         <View style={styles.calendarContainer}>
-                            <HomeCalendar
-                                data={dates}
-                                onPress={this.handleDayClick}
-                            />
+                            <HomeCalendar data={dates}/>
                         </View>
                         <View style={styles.buttonContainer}>
                             <Button
                                 containerStyle={{padding: 0, margin: 0}}
                                 labelStyle={{fontSize: 12, margin: 1, padding: 1}}
                                 label='Leave Feedback'
-                                onPress={() => Linking.openURL(FEEDBACK_FORM)}
+                                onPress={() => Linking.openURL(FEEDBACK_FORM_URL)}
                             />
                         </View>
                     </View>
-                </View>
-            
-            </View>
-        )
-    }
 
-    renderSectorsPopup = (sectorsData) => {
-        const { sectorsPopupOpen, sectorsPopupIndex } = this.state;
-        const { navigate } = this.props.navigation;
-        return (
-            <DetailPopup
-                popupOpen={sectorsPopupOpen}
-                buttonLabel='GRAD PROFILES'
-                onRequestClose={() => this.setState({ sectorsPopupOpen: false })}
-                onButtonPress={
-                    () => {
-                        this.setState({ sectorsPopupOpen: false });
-                        navigate('List', {
-                            headerType: 'title',
-                            titleValue: sectorsData[sectorsPopupIndex].name,
-                            referingValue: sectorsData[sectorsPopupIndex].id,
-                            otherValues: sectorsData.map(({id, name}) => {return {label: name, value: id}}),
-                            dataType: 'GradProfiles'
-                        })
-                    }
-                }
-                data={sectorsData[sectorsPopupIndex]}
-            />
-        )
-    }
-
-    renderOpportunityPopup = (opportunity) => {
-        const { oppsPopupOpen } = this.state;
-        if (!opportunity) {return <View/>}
-        const { name, dates } = opportunity;
-
-        return (
-            <Modal
-                animationType="slide"
-                transparent={true}
-                visible={oppsPopupOpen}
-                onRequestClose={() => this.setState({ oppsPopupOpen: false })}
-            >
-                <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ oppsPopupOpen: false })} >
-                    <TouchableOpacity style={styles.opportunityPopupContainer} activeOpacity={1} onPress={() => {}} >
-                        <Text style={[styles.title, styles.opportunityTitle]}>{name}</Text>
-                            <ScrollView style={styles.datesContainer}>
-                            {
-                                dates.map(date =>
-                                    <View key={date.name} style={styles.dateContainer}>
-                                        <Text style={styles.text}>{date.name}</Text>
-                                        <Text style={styles.text}>{date.date.toDateString()}</Text>
-                                    </View>
-                                )
-                            }
-                            </ScrollView>
-                            <Button
-                                style={{flex: 1}}
-                                onPress={() => this.setState({ oppsPopupOpen: false })}
-                                label='Close'
-                            />
+                    <TouchableOpacity onPress={() => this.setState({ helpPopup: true })} style={styles.helpButton}>
+                        <Image source={require('../assets/images/help_filled.png')}/>
                     </TouchableOpacity>
-                </TouchableOpacity>
-            </Modal>
+
+                </View>
+            </View>
         )
     }
 }
@@ -197,28 +116,10 @@ const styles = StyleSheet.create({...GlobalStyles,
         alignSelf: 'center',
         maxWidth: 150
     },
-    opportunityPopupContainer: {
-        flex: 1,
-        backgroundColor: WHITE,
-        margin: 40,
-        padding: 10,
-        borderColor: 'black',
-        borderWidth: 2
-    },
-    opportunityTitle: {
-        flex: 1,
-        textAlign: 'center',
-        fontSize: 32
-    },
-    datesContainer: {
-        margin: 10,
-        padding: 5,
-        marginTop: 30
-    },
-    dateContainer: {
-        flex: 4,
-        margin: 5,
-        padding: 5
+    helpButton: {
+        position: 'absolute',
+        right: 2.5,
+        bottom: 2.5
     }
   });
 
