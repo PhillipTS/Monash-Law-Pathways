@@ -8,6 +8,7 @@ import {
     StyleSheet
 } from 'react-native';
 import { Calendar } from 'react-native-calendars';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
@@ -85,9 +86,19 @@ class HomeCalendar extends React.Component {
                         calendarBackground: WHITE,
                         textMonthFontFamily: TITLE_FONT,
                         textDayFontFamily: TITLE_FONT,
-                        textDayFontSize: 14,
+                        textDayFontSize: moderateScale(14),
+                        textMonthFontSize: moderateScale(14),
+                        textDayHeaderFontSize: moderateScale(8),
                         dayTextColor: PRIMARY,
-                        monthTextColor: PRIMARY
+                        monthTextColor: PRIMARY,
+
+                        'stylesheet.day.basic': {
+                            base: {
+                                width: moderateScale(32),
+                                height: moderateScale(32),
+                                alignItems: 'center'
+                            }
+                        }
                     }}
                 />
             </View>
@@ -98,25 +109,25 @@ class HomeCalendar extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     calendarContainer: {
         flex: 1,
-        padding: 1,
+        padding: moderateScale(1),
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
-        borderWidth: 2
+        borderWidth: scale(2)
     },
     opportunityTitle: {
         flex: 1,
         textAlign: 'center',
-        fontSize: 32
+        fontSize: moderateScale(32)
     },
     datesContainer: {
-        margin: 10,
-        padding: 5,
-        marginTop: 30
+        margin: moderateScale(10),
+        padding: moderateScale(5),
+        marginTop: moderateScale(30)
     },
     dateContainer: {
         flex: 4,
-        margin: 5,
-        padding: 5
+        margin: moderateScale(5),
+        padding: moderateScale(5)
     }
 });
 

@@ -4,6 +4,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import { SECONDARY, BORDER_RADIUS } from '../Constants';
 
@@ -27,12 +28,12 @@ const styles = StyleSheet.create({...GlobalStyles,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        margin: 1,
-        padding: 1,
-        maxHeight: 50,
+        margin: moderateScale(1),
+        padding: moderateScale(1),
+        maxHeight: verticalScale(50),
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
-        borderWidth: 1,
+        borderWidth: scale(1),
         backgroundColor: SECONDARY
     },
     buttonLabel: {

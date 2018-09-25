@@ -4,6 +4,7 @@ import {
     TextInput,
     StyleSheet
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 import { WHITE, BORDER_RADIUS } from '../Constants';
@@ -39,16 +40,16 @@ const styles = StyleSheet.create({...GlobalStyles,
     componentContainer: {
         flex: 1,
         flexDirection: 'row',
-        padding: 1,
-        maxHeight: 60,
+        padding: moderateScale(1),
+        maxHeight: verticalScale(60),
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
-        borderWidth: 1,
+        borderWidth: scale(1),
         backgroundColor: WHITE
     },
     searchContainer: {
         flex: 3,
-        marginLeft: 10,
+        marginLeft: scale(10),
         textAlign: 'center'
     }
 });

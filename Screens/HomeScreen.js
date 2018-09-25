@@ -11,6 +11,7 @@ import {
     Linking,
     Dimensions
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Database from '../Database';
 import Background from '../Components/Background';
@@ -62,9 +63,9 @@ class HomeScreen extends React.Component {
                 <Modal visible={helpPopup} transparent onRequestClose={() => this.setState({ helpPopup: false })}>
                     <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ helpPopup: false })}>
                         <TouchableOpacity style={styles.popup} activeOpacity={1} onPress={() => {}}>
-                            <Text style={[styles.title, {fontSize: 32, flex: 1}]}>How to use this App</Text>
+                            <Text style={[styles.title, {fontSize: moderateScale(32), flex: 1}]}>How to use this App</Text>
                             <View style={{flex: 8}}>
-                                {helpText.map(text => <Text key={text} style={[styles.text, {textAlign: 'center', padding: 2}]}>{text}</Text>)}
+                                {helpText.map(text => <Text key={text} style={[styles.text, {textAlign: 'center', fontSize: scale(12), padding: scale(2)}]}>{text}</Text>)}
                             </View>
                             <Button containerStyle={{flex: 1}} label='CLOSE' onPress={() => this.setState({ helpPopup: false })}/>
                         </TouchableOpacity>
@@ -72,7 +73,7 @@ class HomeScreen extends React.Component {
                 </Modal>
                 
                 <View style={{flex: 1}}>
-                    <View style={[styles.innerContainer, {width: width - 60, padding: 5}]}>
+                    <View style={[styles.innerContainer, {width: width - scale(60), padding: moderateScale(5)}]}>
                         <View style={styles.searchContainer}>
                             <OpportunitySearch
                                 onSelect={searchTerm => navigate('List', {
@@ -92,7 +93,7 @@ class HomeScreen extends React.Component {
                         <View style={styles.buttonContainer}>
                             <Button
                                 containerStyle={{padding: 0, margin: 0}}
-                                labelStyle={{fontSize: 12, margin: 1, padding: 1}}
+                                labelStyle={{fontSize: moderateScale(12), margin: moderateScale(1), padding: moderateScale(1)}}
                                 label='Leave Feedback'
                                 onPress={() => Linking.openURL(FEEDBACK_FORM_URL)}
                             />
@@ -100,7 +101,7 @@ class HomeScreen extends React.Component {
                     </View>
 
                     <TouchableOpacity onPress={() => this.setState({ helpPopup: true })} style={styles.helpButton}>
-                        <Image source={require('../assets/images/help_filled.png')}/>
+                        <Image style={styles.helpImage} source={require('../assets/images/help_filled.png')}/>
                     </TouchableOpacity>
 
                 </View>
@@ -112,26 +113,31 @@ class HomeScreen extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     searchContainer: {
         flex: 2,
-        marginBottom: 5
+        marginBottom: moderateScale(5)
     },
     selectContainer: {
         flex: 2,
-        marginBottom: 5
+        marginBottom: moderateScale(5)
     },
     calendarContainer: {
         flex: 13,
-        padding: 3,
-        paddingBottom: 2
+        padding: moderateScale(3),
+        paddingBottom: moderateScale(2)
     },
     buttonContainer: {
         flex: 1,
         alignSelf: 'center',
-        maxWidth: 150
+        maxWidth: scale(150)
     },
     helpButton: {
         position: 'absolute',
-        right: 2.5,
-        bottom: 2.5
+        zIndex: 10,
+        right: scale(2.5),
+        bottom: verticalScale(2.5)
+    },
+    helpImage: {
+        height: verticalScale(35),
+        width: scale(35)
     }
   });
 

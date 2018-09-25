@@ -8,6 +8,7 @@ import {
     ScrollView,
     StyleSheet
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import DetailPopup from '../Components/DetailPopup';
 import Button from '../Components/Button';
 import GlobalStyles from '../Styles';
@@ -36,7 +37,7 @@ class Select extends React.Component {
                     <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ listPopupOpen: false })}>
                         <TouchableOpacity style={styles.popup} activeOpacity={1} onPress={() => {}}>
                             <ScrollView contentContainerStyle={{alignItems: 'center'}}>
-                                <Text style={[styles.title, {fontSize: 32, marginBottom: 20}]}>{placeholder}</Text>
+                                <Text style={[styles.title, {fontSize: moderateScale(32), marginBottom: verticalScale(20)}]}>{placeholder}</Text>
                                 {
                                     selectValues.map( ({ label, value }) =>
                                         <TouchableOpacity key={value} style={styles.item} onPress={() =>
@@ -84,16 +85,16 @@ const styles = StyleSheet.create({...GlobalStyles,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        maxHeight: 60,
-        paddingLeft: 20,
-        paddingRight: 10,
+        maxHeight: verticalScale(60),
+        paddingLeft: scale(20),
+        paddingRight: scale(10),
         backgroundColor: WHITE,
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
-        borderWidth: 1
+        borderWidth: scale(1)
     },
     item: {
-        padding: 5
+        padding: moderateScale(5)
     }
 });
 

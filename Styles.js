@@ -1,3 +1,4 @@
+import { scale, moderateScale } from 'react-native-size-matters';
 import { PRIMARY, BACKGROUND, WHITE, BORDER_RADIUS, TITLE_FONT, TEXT_FONT } from './Constants';
 
 export default {
@@ -6,33 +7,35 @@ export default {
         backgroundColor: BACKGROUND,
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 20
+        padding: moderateScale(20)
     },
     innerContainer: {
         flex: 1,
         justifyContent: 'center',
-        padding: 10,
+        padding: moderateScale(10),
         borderColor: 'black',
-        borderWidth: 2,
+        borderWidth: scale(2),
         backgroundColor: PRIMARY,
         borderRadius: BORDER_RADIUS
     },
     popup: {
         flex: 1,
         backgroundColor: WHITE,
-        margin: 40,
-        padding: 10,
+        margin: moderateScale(40),
+        padding: moderateScale(10),
         borderColor: 'black',
-        borderWidth: 2
+        borderWidth: scale(2)
     },
     title: {
-        margin: 5,
+        margin: moderateScale(5),
         textAlign: 'center',
         textAlignVertical: 'center',
-        fontFamily: TITLE_FONT
+        fontFamily: TITLE_FONT,
+        fontSize: moderateScale(14)
     },
     text: {
         color: PRIMARY,
-        fontFamily: TEXT_FONT
+        fontFamily: TEXT_FONT,
+        fontSize: moderateScale(14)
     }
 }

@@ -7,6 +7,7 @@ import {
     StyleSheet,
     Alert
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
 import Background from '../Components/Background';
@@ -184,17 +185,17 @@ const styles = StyleSheet.create({...GlobalStyles,
     headerContainer: {
         flex: 1,
         width: '80%',
-        marginBottom: 20
+        marginBottom: moderateScale(20)
     },
     scrollContainer: {
         borderColor: 'black',
         borderRadius: BORDER_RADIUS,
-        borderWidth: 2,
+        borderWidth: scale(2),
         backgroundColor: PRIMARY
     },
     noDataLabel: {
-        top: 100,
-        fontSize: 18,
+        top: verticalScale(100),
+        fontSize: moderateScale(18),
         textAlign: 'center',
         textAlignVertical: 'center'
     }

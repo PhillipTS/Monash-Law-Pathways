@@ -8,6 +8,7 @@ import {
     Dimensions
 } from 'react-native';
 import { Font } from 'expo';
+import { scale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 import { PRIMARY, WHITE } from '../Constants';
@@ -40,7 +41,7 @@ class StartScreen extends React.Component {
             <View style={styles.box}>
 
                 <View style={{flex: 5}}>
-                    <Image style={{flex: 1, width: width - 20, resizeMode: 'contain'}} source={require('../assets/images/large_logo.png')}/>
+                    <Image style={{flex: 1, width: width - scale(20), resizeMode: 'contain'}} source={require('../assets/images/large_logo.png')}/>
                 </View>
 
                 <Text style={[styles.title, styles.subTitle]}>START YOUR PATHWAY TO SUCCESS</Text>
@@ -68,20 +69,20 @@ const styles = StyleSheet.create({...GlobalStyles,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: PRIMARY,
-        padding: 10,
-        paddingTop: 30
+        padding: moderateScale(10),
+        paddingTop: moderateScale(30)
     },
     subTitle: {
         flex: 1,
         color: WHITE,
-        fontSize: 16,
+        fontSize: moderateScale(16),
         fontStyle: 'italic',
         textAlign: 'center',
         textAlignVertical: 'center'
     },
     buttonContainer: {
         flex: 1,
-        minWidth: 150,
+        minWidth: scale(150),
         justifyContent: 'center'
     }
 })

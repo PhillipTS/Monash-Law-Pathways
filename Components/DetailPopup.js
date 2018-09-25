@@ -8,6 +8,7 @@ import {
     StyleSheet,
     Dimensions
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 
@@ -21,7 +22,7 @@ class DetailPopup extends React.Component {
                 {//<Image style={styles.floatingLogo} source={require('../assets/images/logo.png')}/>
                 }
                 <ScrollView>
-                    <Image style={{width, height: 1000}} source={data.file}/>
+                    <Image style={{width, height: verticalScale(1000)}} source={data.file}/>
                 </ScrollView>
                 { data.link &&
                     <View style={styles.buttonContainer}>
@@ -57,16 +58,16 @@ class DetailPopup extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     buttonContainer: {
         borderColor: 'black',
-        borderWidth: 4,
-        height: 50
+        borderWidth: scale(3),
+        height: verticalScale(50)
     },
     floatingLogo: {
         position: 'absolute',
         zIndex: 10,
-        width: 50,
-        height: 50,
-        top: 10,
-        right: 10
+        width: scale(50),
+        height: verticalScale(50),
+        top: verticalScale(10),
+        right: scale(10)
     }
 });
 

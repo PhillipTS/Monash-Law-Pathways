@@ -6,6 +6,7 @@ import {
     TouchableOpacity,
     StyleSheet
 } from 'react-native';
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import { SECONDARY_BACKGROUND, BORDER_RADIUS } from '../Constants';
 
@@ -19,7 +20,7 @@ class DetailCard extends React.Component {
         return (
             <TouchableOpacity onPress={onPress}>
                 <View style={styles.cardContainer} >
-                    <Text style={[styles.title, styles.text, {flex: 1, marginLeft: 10}]}>
+                    <Text style={[styles.title, styles.text, {flex: 1, marginLeft: moderateScale(10)}]}>
                         {name.toUpperCase()}
                     </Text>
                     <View>
@@ -37,17 +38,17 @@ const styles = StyleSheet.create({...GlobalStyles,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        margin: 10,
-        height: 80,
+        margin: moderateScale(10),
+        height: verticalScale(80),
         borderColor: 'black',
-        borderWidth: 1,
+        borderWidth: scale(1),
         borderRadius: BORDER_RADIUS,
         backgroundColor: SECONDARY_BACKGROUND
     },
     icon: {
         flex: 1,
-        height: 100,
-        width: 100,
+        height: verticalScale(100),
+        width: scale(100),
         resizeMode: 'contain'
     }
 });
