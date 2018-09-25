@@ -1,6 +1,6 @@
 {
   "name": "explore-the-law",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "private": true,
   "devDependencies": {
     "jest-expo": "~27.0.0",
