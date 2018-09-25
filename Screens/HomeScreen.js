@@ -21,6 +21,14 @@ import Button from '../Components/Button';
 import { getOpportunities, setOpportunity } from '../LocalStorage';
 import { FEEDBACK_FORM_URL } from '../Constants';
 
+const helpText = [
+    'Welcome to ‘Explore the Law’',
+    'There are 3 sections to this app:',
+    'Sector profiles, grad profiles, and Monash opportunities.',
+    'For your first time on the app, click ‘Select a Sector’ and choose a sector you are interested in. Click ‘Grad Profiles’. You will then be able to select a grad profile to see related graduate pathways. Click onto ‘Opportunities’ to browse current opportunities which you can choose to be ‘interested in’. These opportunities will then appear on your personalised calendar on your homepage, which you can monitor to ensure you never miss a deadline! Alternatively, you may search opportunities directly from the homepage.',
+    'Explore the Law!'
+]
+
 class HomeScreen extends React.Component {
 
     constructor(props) {
@@ -54,7 +62,11 @@ class HomeScreen extends React.Component {
                 <Modal visible={helpPopup} transparent onRequestClose={() => this.setState({ helpPopup: false })}>
                     <TouchableOpacity style={{flex: 1}} activeOpacity={1} onPress={() => this.setState({ helpPopup: false })}>
                         <TouchableOpacity style={styles.popup} activeOpacity={1} onPress={() => {}}>
-                            <Text style={[styles.title, {fontSize: 32}]}>How to use this App</Text>
+                            <Text style={[styles.title, {fontSize: 32, flex: 1}]}>How to use this App</Text>
+                            <View style={{flex: 8}}>
+                                {helpText.map(text => <Text key={text} style={[styles.text, {textAlign: 'center', padding: 2}]}>{text}</Text>)}
+                            </View>
+                            <Button containerStyle={{flex: 1}} label='CLOSE' onPress={() => this.setState({ helpPopup: false })}/>
                         </TouchableOpacity>
                     </TouchableOpacity>
                 </Modal>

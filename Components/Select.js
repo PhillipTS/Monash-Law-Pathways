@@ -9,6 +9,7 @@ import {
     StyleSheet
 } from 'react-native';
 import DetailPopup from '../Components/DetailPopup';
+import Button from '../Components/Button';
 import GlobalStyles from '../Styles';
 import { WHITE, BORDER_RADIUS } from '../Constants';
 
@@ -46,6 +47,7 @@ class Select extends React.Component {
                                     )
                                 }
                             </ScrollView>
+                            <Button label='CLOSE' onPress={() => this.setState({ listPopupOpen: false })}/>
                         </TouchableOpacity>
                     </TouchableOpacity>
                 </Modal>
@@ -83,7 +85,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         alignItems: 'center',
         justifyContent: 'center',
         maxHeight: 60,
-        paddingLeft: 10,
+        paddingLeft: 20,
         paddingRight: 10,
         backgroundColor: WHITE,
         borderRadius: BORDER_RADIUS,

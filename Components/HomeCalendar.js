@@ -60,13 +60,13 @@ class HomeCalendar extends React.Component {
                                 {
                                     dates ? dates.map(date =>
                                         <View key={date.name} style={styles.dateContainer}>
-                                            <Text style={styles.text}>{date.name}</Text>
-                                            <Text style={styles.text}>{date.date.toDateString()}</Text>
+                                            <Text style={[styles.text, {fontWeight: 'bold', textAlign: 'center'}]}>{date.name}</Text>
+                                            <Text style={[styles.text, {textAlign: 'center'}]}>{date.date.toDateString()}</Text>
                                         </View>
                                     ) : null
                                 }
                                 </ScrollView>
-                                <Button style={{flex: 1}} onPress={() => this.setState({ oppsPopupOpen: false })} label='Close'/>
+                                <Button style={{flex: 1}} onPress={() => this.setState({ oppsPopupOpen: false })} label='CLOSE'/>
                         </TouchableOpacity>
                     </TouchableOpacity>
                 </Modal>

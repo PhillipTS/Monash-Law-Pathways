@@ -151,7 +151,7 @@ class ListScreen extends React.Component {
                     dataType === 'GradProfiles' ? 'OPPORTUNITIES' :
                     interested ? 'ALREADY INTERESTED' : 'INTERESTED'
                 }
-                buttonDisabled={interested}
+                buttonDisabled={dataType === 'Opportunities' && interested}
                 onRequestClose={() => this.setState({ popupOpen: false })}
                 onButtonPress={
                     dataType === 'Sectors' ? () => {

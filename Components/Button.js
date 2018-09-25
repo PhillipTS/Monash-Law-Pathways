@@ -25,6 +25,8 @@ class Button extends React.Component {
 const styles = StyleSheet.create({...GlobalStyles,
     buttonContainer: {
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
         margin: 1,
         padding: 1,
         maxHeight: 50,

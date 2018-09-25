@@ -17,12 +17,9 @@ class DetailPopup extends React.Component {
         const { width } = Dimensions.get('window');
         
         return (
-            <Modal
-                animationType="slide"
-                transparent={false}
-                visible={popupOpen}
-                onRequestClose={onRequestClose}
-            >
+            <Modal animationType="slide" visible={popupOpen} onRequestClose={onRequestClose}>
+                {//<Image style={styles.floatingLogo} source={require('../assets/images/logo.png')}/>
+                }
                 <ScrollView>
                     <Image style={{width, height: 1000}} source={data.file}/>
                 </ScrollView>
@@ -45,6 +42,13 @@ class DetailPopup extends React.Component {
                         />
                     </View>
                 }
+                <View style={styles.buttonContainer}>
+                    <Button
+                        label='CLOSE'
+                        onPress={onRequestClose}
+                        containerStyle={{margin: 0, borderRadius: 0}}
+                    />
+                </View>
             </Modal>
         )
     }
@@ -55,6 +59,14 @@ const styles = StyleSheet.create({...GlobalStyles,
         borderColor: 'black',
         borderWidth: 4,
         height: 50
+    },
+    floatingLogo: {
+        position: 'absolute',
+        zIndex: 10,
+        width: 50,
+        height: 50,
+        top: 10,
+        right: 10
     }
 });
 
