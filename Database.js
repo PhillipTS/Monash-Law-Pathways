@@ -66,14 +66,17 @@ export default {
             link: 'https://www.monashlss.com/single-post/2018/03/12/JUST-LEADERSHIP-PROGRAM',
             dates: [
                 {
+                    opportunity: 0,
                     name: 'Applications Open',
                     date: new Date("2019-02-26")
                 },
                 {
+                    opportunity: 0,
                     name: 'Applications Close',
                     date: new Date("2019-03-09")
                 },
                 {
+                    opportunity: 0,
                     name: 'First Seminar',
                     date: new Date("2019-03-27")
                 }
@@ -87,10 +90,12 @@ export default {
             link: 'https://www.monash.edu/study-abroad',
             dates: [
                 {
+                    opportunity: 1,
                     name: 'Semester 1 Applications Close',
                     date: new Date("2019-04-15")
                 },
                 {
+                    opportunity: 1,
                     name: 'Semester 2 Applications Close',
                     date: new Date("2018-09-15")
                 }
@@ -104,14 +109,17 @@ export default {
             link: 'https://www.monash.edu/access/mentoring/become_mentor',
             dates: [
                 {
+                    opportunity: 2,
                     name: 'Applications Close',
                     date: new Date("2018-10-01")
                 },
                 {
+                    opportunity: 2,
                     name: 'Interviews Conducted',
                     date: new Date("2018-11-01")
                 },
                 {
+                    opportunity: 2,
                     name: 'Traning Day',
                     date: new Date("2019-02-01")
                 }
@@ -141,14 +149,17 @@ export default {
             link: 'https://www.monash.edu/law/current-students/resources/student-experience/leadership/ambassadors',
             dates: [
                 {
+                    opportunity: 5,
                     name: 'Applications Open',
                     date: new Date("2019-03-01")
                 },
                 {
+                    opportunity: 5,
                     name: 'Applications Close',
                     date: new Date("2019-03-15")
                 },
                 {
+                    opportunity: 5,
                     name: 'Outcome Released',
                     date: new Date("2019-03-23")
                 }
@@ -162,6 +173,7 @@ export default {
             link: 'https://www.monash.edu/law/news-and-events/publications/monlr',
             dates: [
                 {
+                    opportunity: 6,
                     name: 'Applications Due',
                     date: new Date("2019-02-06")
                 }
@@ -183,58 +195,72 @@ export default {
             link: 'https://www.monashlss.com/competitions',
             dates: [
                 {
+                    opportunity: 8,
                     name: 'General Moot Opens',
                     date: new Date("2019-02-21")
                 },
                 {
+                    opportunity: 8,
                     name: 'General Moot Closes',
                     date: new Date("2019-02-28")
                 },
                 {
+                    opportunity: 8,
                     name: 'Client Interview Opens',
                     date: new Date("2019-03-13")
                 },
                 {
+                    opportunity: 8,
                     name: 'Client Interview Closes',
                     date: new Date("2019-03-23")
                 },
                 {
+                    opportunity: 8,
                     name: 'M&A Opens',
                     date: new Date("2019-03-21")
                 },
                 {
+                    opportunity: 8,
                     name: 'M&A Closes',
                     date: new Date("2019-04-06")
                 },
                 {
+                    opportunity: 8,
                     name: 'Negotiations Open',
                     date: new Date("2019-04-09")
                 },
                 {
+                    opportunity: 8,
                     name: 'Negotiations Close',
                     date: new Date("2019-04-18")
                 },
                 {
+                    opportunity: 8,
                     name: 'First Year Moot Opens',
                     date: new Date("2019-07-18")
                 },
                 {
+                    opportunity: 8,
                     name: 'First Year Moot Closes',
                     date: new Date("2019-07-27")
                 },
                 {
+                    opportunity: 8,
                     name: 'IHL Moot Opens',
                     date: new Date("2019-07-25")
                 },
                 {
+                    opportunity: 8,
                     name: 'IHL Moot Closes',
                     date: new Date("2019-08-06")
                 },
                 {
+                    opportunity: 8,
                     name: 'WitEx Opens',
                     date: new Date("2019-08-13")
                 },
                 {
+                    opportunity: 8,
                     name: 'WitEx Closes',
                     date: new Date("2019-08-31")
                 }
@@ -248,6 +274,7 @@ export default {
             link: 'https://www.monash.edu/pubs/2018handbooks/units/LAW4328.html',
             dates: [
                 {
+                    opportunity: 9,
                     name: 'Applications Close',
                     date: new Date("2019-09-28")
                 }
@@ -261,6 +288,7 @@ export default {
             link: 'https://jobs.careers.vic.gov.au/jobtools/jncustomsearch.viewFullSingle?in_organid=17342&in_jnCounter=222719643&in_jobDate=all',
             dates: [
                 {
+                    opportunity: 10,
                     name: '2020 Applications Open',
                     date: new Date("2019-04-01")
                 }
@@ -274,18 +302,22 @@ export default {
             link: 'https://www.monash.edu/law/home/cle/mlcc/volunteer',
             dates: [
                 {
+                    opportunity: 11,
                     name: 'April Intake Applications Open',
                     date: new Date("2019-02-25")
                 },
                 {
+                    opportunity: 11,
                     name: 'April Intake Applications Close',
                     date: new Date("2019-03-04")
                 },
                 {
+                    opportunity: 11,
                     name: 'September Intake Applications Open',
                     date: new Date("2019-09-03")
                 },
                 {
+                    opportunity: 11,
                     name: 'September Intake Applications Close',
                     date: new Date("2019-09-11")
                 }
@@ -307,6 +339,7 @@ export default {
             link: 'https://www.monash.edu/study-abroad/outbound/internships/indonesia-program',
             dates: [
                 {
+                    opportunity: 13,
                     name: 'Applications Close',
                     date: new Date('2019-04-15')
                 }

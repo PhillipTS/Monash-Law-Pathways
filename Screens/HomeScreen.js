@@ -73,7 +73,7 @@ class HomeScreen extends React.Component {
                 </Modal>
                 
                 <View style={{flex: 1}}>
-                    <View style={[styles.innerContainer, {width: width - scale(60), padding: moderateScale(5)}]}>
+                    <View style={[styles.innerContainer, styles.homeContainer]}>
                         <View style={styles.searchContainer}>
                             <OpportunitySearch
                                 onSelect={searchTerm => navigate('List', {
@@ -98,12 +98,12 @@ class HomeScreen extends React.Component {
                                 onPress={() => Linking.openURL(FEEDBACK_FORM_URL)}
                             />
                         </View>
+
+                        <TouchableOpacity onPress={() => this.setState({ helpPopup: true })} style={styles.helpButton}>
+                            <Image style={styles.helpImage} source={require('../assets/images/help_filled.png')}/>
+                        </TouchableOpacity>
+
                     </View>
-
-                    <TouchableOpacity onPress={() => this.setState({ helpPopup: true })} style={styles.helpButton}>
-                        <Image style={styles.helpImage} source={require('../assets/images/help_filled.png')}/>
-                    </TouchableOpacity>
-
                 </View>
             </View>
         )
@@ -111,6 +111,12 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
+    homeContainer: {
+        width: '100%',
+        marginLeft: scale(10),
+        marginRight: scale(10),
+        padding: moderateScale(5)
+    },
     searchContainer: {
         flex: 2,
         marginBottom: moderateScale(5)

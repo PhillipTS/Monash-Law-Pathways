@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Text,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    Platform
 } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({...GlobalStyles,
         justifyContent: 'center',
         margin: moderateScale(1),
         padding: moderateScale(1),
+        ...Platform.select({ios: {paddingTop: 10}, android: {}}),
         maxHeight: verticalScale(50),
         borderRadius: BORDER_RADIUS,
         borderColor: 'black',
@@ -39,7 +41,7 @@ const styles = StyleSheet.create({...GlobalStyles,
     buttonLabel: {
         flex: 1,
         textAlign: 'center',
-        textAlignVertical: 'center'
+        textAlignVertical: 'center',
     }
 });
 

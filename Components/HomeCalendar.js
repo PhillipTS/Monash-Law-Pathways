@@ -27,16 +27,16 @@ class HomeCalendar extends React.Component {
     }
 
     handleDayClick = (day) => {
+        const { data } = this.props;
         const isoDate = day.dateString;
         let opportunity = null;
         
-        Database.Opportunities.forEach(opp =>
-            opp.dates ? opp.dates.forEach(date => {
-                if (toISO(date.date) === isoDate) {
-                    opportunity = opp;
-                }
-            }) : null
-        );
+        // TODO: If the selected date is related to 2 different interested opportunities, it will show the latter one
+        data && data.forEach(date => { console.log('Date', date); console.log('ISO', isoDate);
+            if (toISO(date.date) === isoDate) {
+                opportunity = Database.Opportunities[date.opportunity];
+            }
+        });
         
         if (opportunity) {
             this.setState({ opportunity, oppsPopupOpen: true });
