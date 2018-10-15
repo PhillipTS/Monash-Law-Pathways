@@ -5,7 +5,8 @@ import {
     Image,
     Text,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    Platform
 } from 'react-native';
 import { Font } from 'expo';
 import { scale, moderateScale } from 'react-native-size-matters';
@@ -33,7 +34,7 @@ class StartScreen extends React.Component {
     render() {
         const { dispatch } = this.props.navigation;
         const { fontsLoaded } = this.state;
-        const { width } = Dimensions.get('window');
+        const { width, height } = Dimensions.get('window');
 
         if (!fontsLoaded) {return <View/>}
 
@@ -44,7 +45,7 @@ class StartScreen extends React.Component {
                     <Image style={{flex: 1, width: width - scale(20), resizeMode: 'contain'}} source={require('../assets/images/large_logo.png')}/>
                 </View>
 
-                <Text style={[styles.title, styles.subTitle]}>START YOUR PATHWAY TO SUCCESS</Text>
+                <Text style={[styles.title, styles.subTitle, {paddingTop: height > 1000 ? '15%' : 0}]}>START YOUR PATHWAY TO SUCCESS</Text>
 
                 <View style={styles.buttonContainer}>
                     <Button

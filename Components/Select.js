@@ -41,7 +41,7 @@ class Select extends React.Component {
                                 {
                                     selectValues.map( ({ label, value }) =>
                                         <TouchableOpacity key={value} style={styles.item} onPress={() =>
-                                            this.setState({detailPopupOpen: true, selectedValueIndex: value})
+                                            this.setState({listPopupOpen: false, detailPopupOpen: true, selectedValueIndex: value})
                                         }>
                                             <Text style={styles.text}>{label}</Text>
                                         </TouchableOpacity>

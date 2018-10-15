@@ -8,7 +8,7 @@ import {
     StyleSheet
 } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { scale, moderateScale } from 'react-native-size-matters';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
@@ -32,7 +32,7 @@ class HomeCalendar extends React.Component {
         let opportunity = null;
         
         // TODO: If the selected date is related to 2 different interested opportunities, it will show the latter one
-        data && data.forEach(date => { console.log('Date', date); console.log('ISO', isoDate);
+        data && data.forEach(date => {
             if (toISO(date.date) === isoDate) {
                 opportunity = Database.Opportunities[date.opportunity];
             }
@@ -59,12 +59,12 @@ class HomeCalendar extends React.Component {
                             <Text style={[styles.title, styles.opportunityTitle]}>{name}</Text>
                                 <ScrollView style={styles.datesContainer}>
                                 {
-                                    dates ? dates.map(date =>
+                                    dates && dates.map(date =>
                                         <View key={date.name} style={styles.dateContainer}>
                                             <Text style={[styles.text, {fontWeight: 'bold', textAlign: 'center'}]}>{date.name}</Text>
                                             <Text style={[styles.text, {textAlign: 'center'}]}>{date.date.toDateString()}</Text>
                                         </View>
-                                    ) : null
+                                    )
                                 }
                                 </ScrollView>
                                 <Button style={{flex: 1}} onPress={() => this.setState({ oppsPopupOpen: false })} label='CLOSE'/>
@@ -92,6 +92,7 @@ class HomeCalendar extends React.Component {
                         dayTextColor: PRIMARY,
                         monthTextColor: PRIMARY,
 
+                        // Override styles
                         'stylesheet.day.basic': {
                             base: {
                                 width: moderateScale(32),

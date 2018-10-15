@@ -2,19 +2,16 @@ import React from 'react';
 import {
     View,
     Image,
-    StyleSheet,
-    Dimensions
+    StyleSheet
 } from 'react-native';
 import GlobalStyles from '../Styles';
 
 class Background extends React.Component {
     render() {
-        const { height } = Dimensions.get('window');
-
         return (
-            <View style={styles.backgrounContainer}>
+            <View style={styles.backgroundContainer}>
                 <Image
-                    style={[styles.image, {height: height}]}
+                    style={styles.image}
                     source={require('../assets/images/background_space.png')}
                 />
             </View>
@@ -23,7 +20,7 @@ class Background extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-    backgrounContainer: {
+    backgroundContainer: {
         position: 'absolute',
         flex: 1
     },

@@ -7,8 +7,7 @@ import {
     ScrollView,
     StyleSheet,
     Dimensions,
-    SafeAreaView,
-    Platform
+    SafeAreaView
 } from 'react-native';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
@@ -18,7 +17,7 @@ import { PRIMARY } from '../Constants';
 class DetailPopup extends React.Component {
     render() {
         const { popupOpen, buttonLabel, onRequestClose, onButtonPress, data, buttonDisabled } = this.props;
-        const { width } = Dimensions.get('window');
+        const { width, height } = Dimensions.get('window');
         
         return (
             <Modal animationType="slide" visible={popupOpen} onRequestClose={onRequestClose}>
@@ -26,7 +25,7 @@ class DetailPopup extends React.Component {
                 }
                 <SafeAreaView style={{flex: 1, backgroundColor: PRIMARY}}>
                     <ScrollView>
-                        <Image style={[styles.image, {width}]} source={data.file}/>
+                        <Image style={{width, height: verticalScale(height < 1000 ? 1000 : 1500)}} source={data.file}/>
                     </ScrollView>
                     { data.link &&
                         <View style={styles.buttonContainer}>
@@ -61,9 +60,6 @@ class DetailPopup extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-    image: {
-        ...Platform.select({ ios: {height: verticalScale(800)}, android: {height: verticalScale(1000)}})
-    },
     buttonContainer: {
         borderColor: 'black',
         borderWidth: scale(3),

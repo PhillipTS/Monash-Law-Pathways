@@ -73,7 +73,7 @@ class HomeScreen extends React.Component {
                 </Modal>
                 
                 <View style={{flex: 1}}>
-                    <View style={[styles.innerContainer, styles.homeContainer]}>
+                    <View style={[styles.innerContainer, {width: width - moderateScale(60)}]}>
                         <View style={styles.searchContainer}>
                             <OpportunitySearch
                                 onSelect={searchTerm => navigate('List', {
@@ -93,7 +93,7 @@ class HomeScreen extends React.Component {
                         <View style={styles.buttonContainer}>
                             <Button
                                 containerStyle={{padding: 0, margin: 0}}
-                                labelStyle={{fontSize: moderateScale(12), margin: moderateScale(1), padding: moderateScale(1)}}
+                                labelStyle={styles.feedbackLabel}
                                 label='Leave Feedback'
                                 onPress={() => Linking.openURL(FEEDBACK_FORM_URL)}
                             />
@@ -111,12 +111,6 @@ class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({...GlobalStyles,
-    homeContainer: {
-        width: '100%',
-        marginLeft: scale(10),
-        marginRight: scale(10),
-        padding: moderateScale(5)
-    },
     searchContainer: {
         flex: 2,
         marginBottom: moderateScale(5)
@@ -134,6 +128,11 @@ const styles = StyleSheet.create({...GlobalStyles,
         flex: 1,
         alignSelf: 'center',
         maxWidth: scale(150)
+    },
+    feedbackLabel: {
+        fontSize: moderateScale(12),
+        margin: moderateScale(1),
+        padding: moderateScale(1)
     },
     helpButton: {
         position: 'absolute',
