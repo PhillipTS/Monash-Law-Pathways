@@ -9,7 +9,7 @@
       "resiseMode": "contain"
     },
 		"description": "Hub to discover Law Opportunities for Students. Explore what's out there!",
-		"version": "1.2.0",
+		"version": "1.3.0",
     "orientation": "portrait",
     
 		"ios": {
@@ -19,7 +19,7 @@
     
 		"android": {
       "package": "com.pathwaysToSuccess.exploreTheLaw",
-      "versionCode": 5,
+      "versionCode": 6,
       "permissions": []
 		}
   }

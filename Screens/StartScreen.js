@@ -5,8 +5,7 @@ import {
     Image,
     Text,
     StyleSheet,
-    Dimensions,
-    Platform
+    Dimensions
 } from 'react-native';
 import { Font } from 'expo';
 import { scale, moderateScale } from 'react-native-size-matters';

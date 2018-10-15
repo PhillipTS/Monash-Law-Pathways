@@ -20,7 +20,7 @@ const App = createStackNavigator(
             backgroundColor: BACKGROUND
         }
       }
-  }
+    }
   }
 );
 

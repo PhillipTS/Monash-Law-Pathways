@@ -9,7 +9,7 @@ import {
     Dimensions,
     SafeAreaView
 } from 'react-native';
-import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+import { scale, verticalScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 import { PRIMARY } from '../Constants';
@@ -25,7 +25,7 @@ class DetailPopup extends React.Component {
                 }
                 <SafeAreaView style={{flex: 1, backgroundColor: PRIMARY}}>
                     <ScrollView>
-                        <Image style={{width, height: verticalScale(height < 1000 ? 1000 : 1500)}} source={data.file}/>
+                        <Image style={{width, height: verticalScale(height < 1000 ? 1000 : 1300)}} source={data.file}/>
                     </ScrollView>
                     { data.link &&
                         <View style={styles.buttonContainer}>
