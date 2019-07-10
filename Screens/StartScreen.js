@@ -7,14 +7,10 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
-import * as Font from 'expo-font';
 import { scale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
 import { PRIMARY, WHITE } from '../Constants';
-
-import OpenSansFont from '../assets/fonts/OpenSans-Regular.ttf';
-import Oswald from '../assets/fonts/Oswald-Regular.ttf';
 
 import Logo from '../assets/images/large_logo.png';
 
@@ -47,27 +43,10 @@ const styles = StyleSheet.create({
 class StartScreen extends React.Component {
   static navigationOptions() { return { header: null }; }
 
-  constructor(props) {
-    super(props);
-    this.state = { fontsLoaded: false };
-  }
-
-  async componentDidMount() {
-    await Font.loadAsync({
-      'open-sans': OpenSansFont,
-      oswald: Oswald,
-    });
-
-    this.setState({ fontsLoaded: true });
-  }
-
   render() {
     const { navigation } = this.props;
     const { dispatch } = navigation;
-    const { fontsLoaded } = this.state;
     const { width, height } = Dimensions.get('window');
-
-    if (!fontsLoaded) { return <View />; }
 
     return (
       <View style={styles.box}>
