@@ -87,8 +87,11 @@ class HomeScreen extends React.Component {
 
     const sectorsData = Database.Sectors;
     const dates = [];
-
-    interestedOpps.forEach((opp) => { if (opp && opp.dates) { dates.push(opp.dates); } });
+    interestedOpps.forEach((opp) => {
+      if (opp && opp.dates) {
+        opp.dates.forEach(date => dates.push(date));
+      }
+    });
 
     return (
       <View style={styles.container}>

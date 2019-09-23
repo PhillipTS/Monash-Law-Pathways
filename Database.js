@@ -69,17 +69,17 @@ export default {
         {
           opportunity: 0,
           name: 'Applications Open',
-          date: new Date('2019-02-26'),
+          date: new Date('2019-08-26'),
         },
         {
           opportunity: 0,
           name: 'Applications Close',
-          date: new Date('2019-03-09'),
+          date: new Date('2019-09-09'),
         },
         {
           opportunity: 0,
           name: 'First Seminar',
-          date: new Date('2019-03-27'),
+          date: new Date('2019-09-27'),
         },
       ],
     },

@@ -10,6 +10,7 @@ import {
 import { scale, moderateScale } from 'react-native-size-matters';
 import GlobalStyles from '../Styles';
 import Button from '../Components/Button';
+import DoubleButton from '../Components/DoubleButton';
 import { PRIMARY, WHITE } from '../Constants';
 
 import Logo from '../assets/images/large_logo.png';
@@ -56,6 +57,9 @@ class StartScreen extends React.Component {
         </View>
 
         <Text style={[styles.title, styles.subTitle, { paddingTop: height > 1000 ? '15%' : 0 }]}>START YOUR PATHWAY TO SUCCESS</Text>
+
+        {//<DoubleButton/>
+        }
 
         <View style={styles.buttonContainer}>
           <Button

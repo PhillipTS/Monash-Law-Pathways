@@ -24,10 +24,14 @@
   },
   "dependencies": {
     "expo": "^33.0.0",
+    "expo-calendar": "~5.0.1",
     "expo-font": "~5.0.1",
+    "expo-permissions": "~5.0.1",
     "react": "16.8.3",
+    "react-google-calendar-api": "^1.0.10",
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-calendars": "^1.196.0",
+    "react-native-google-signin": "^2.0.0",
     "react-native-size-matters": "^0.2.1",
     "react-navigation": "^3.11.0"
   }

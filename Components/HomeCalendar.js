@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const toISO = date => date.toISOString().substr(0, 10);
+const toISO = date => { console.log(date); return date ? date.toISOString().substr(0, 10) : null; }
 
 class HomeCalendar extends React.Component {
   constructor(props) {
@@ -51,6 +51,8 @@ class HomeCalendar extends React.Component {
       oppsPopupOpen: false,
       opportunity: {},
     };
+
+    this.handleDayClick = this.handleDayClick.bind(this);
   }
 
   handleDayClick(day) {

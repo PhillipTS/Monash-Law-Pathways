@@ -7,6 +7,8 @@ import {
   StyleSheet,
   Alert,
 } from 'react-native';
+import * as Permissions from 'expo-permissions';
+import * as Calendar from 'expo-calendar';
 import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
 import Database from '../Database';
 import GlobalStyles from '../Styles';
@@ -64,6 +66,13 @@ const getData = (dataType, value) => {
   }
 };
 
+async function requestPermissions() {
+  try {
+    const { status } = await Permissions.askAsync(Permissions.CALENDAR);
+    return status === 'granted';
+  } catch (e) { return false; }
+}
+
 class ListScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -75,10 +84,33 @@ class ListScreen extends React.Component {
     };
   }
 
-  markInterested(opportunity) {
+  async markInterested(opportunity) {
     const { navigation } = this.props;
     const { interestedOpportunities } = this.state;
     const { popToTop } = navigation;
+
+    if (await requestPermissions()) {
+      // Have Permission
+      const calendars = await Calendar.getCalendarsAsync();
+      /** TODO: Have user pick Calander */
+      const calendar = calendars[0];
+      opportunity.dates.map(async (date) => {
+        try {
+          return await Calendar.createEventAsync(calendar.id, {
+            title: `${opportunity.name} - ${date.name}`,
+            startDate: date.date,
+            endDate: date.date,
+            allDay: true,
+            timeZone: '+10',
+            notes: opportunity.link,
+          });
+        } catch (e) { console.warn(e); }
+      });
+    } else {
+      // Asked but they said no :(
+      Alert.alert('Please enable Calendar permissions to continue');
+      return;
+    }
 
     return addOpportunity(opportunity.id).then(() => {
       Alert.alert('Success', `Now interested in\n${opportunity.name}`,
